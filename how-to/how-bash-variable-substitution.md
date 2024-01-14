@@ -12,7 +12,7 @@
 	to transform Bash shell variables for your scripting needs.
 
 
-# String Manipulation and Expanding Variables
+## String Manipulation and Expanding Variables
 
 | Variable                        |                                                      Description |
 | ------------------------------- | ---------------------------------------------------------------: |
