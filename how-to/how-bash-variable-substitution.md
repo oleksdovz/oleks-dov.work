@@ -1,6 +1,11 @@
 # Bash Parameter Substitution
 
-[Source - https://www.cyberciti.biz](https://www.cyberciti.biz/tips/bash-shell-parameter-substitution-2.html)
+Table of contents
+- [Bash Parameter Substitution](#bash-parameter-substitution)
+	- [Source - https://www.cyberciti.biz](#source---httpswwwcybercitibiz)
+	- [String Manipulation and Expanding Variables](#string-manipulation-and-expanding-variables)
+
+## [Source - https://www.cyberciti.biz](https://www.cyberciti.biz/tips/bash-shell-parameter-substitution-2.html)
 
 
 The `$` character is used for parameter expansion, 
