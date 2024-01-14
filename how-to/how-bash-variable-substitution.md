@@ -2,11 +2,14 @@
 
 [Source - https://www.cyberciti.biz](https://www.cyberciti.biz/tips/bash-shell-parameter-substitution-2.html)
 
-	The `$` character is used for parameter expansion, arithmetic expansion and command substitution.
-	
-	You can use it for manipulating and expanding variables on demands without using external commands such as perl, python, sed or awk. 
+	The `$` character is used for parameter expansion, 
+	arithmetic expansion and command substitution.
 
-	This guide shows you how to use parameter expansion modifiers to transform Bash shell variables for your scripting needs.
+	You can use it for manipulating and expanding variables on demands 
+	without using external commands such as perl, python, sed or awk. 
+
+	This guide shows you how to use parameter expansion modifiers 
+	to transform Bash shell variables for your scripting needs.
 
 
 # String Manipulation and Expanding Variables
