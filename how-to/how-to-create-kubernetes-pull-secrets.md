@@ -57,7 +57,7 @@ $ kubectl create secret docker-registry <secret_name> \
 ## secret.yaml                                 
 apiVersion: v1
 data:
-  .dockerconfigjson: eyJhdXRocyI6eyJ5b3VyX3JlZ2lzdHJ5X3VybCI6eyJ1c2VybmFtZSI6InlvdXJfcmVnaXN0cnlfdXNlcm5hbWUiLCJwYXNzd29yZCI6InlvdXJfcmVnaXN0cnlfYXV0aF9wYXNzd29yZCIsImVtYWlsIjoieW91cl9lbWFpbF9hZGRyZXNzIiwiYXV0aCI6ImVXOTFjbDl5WldkcGMzUnllVjkxYzJWeWJtRnRaVHA1YjNWeVgzSmxaMmx6ZEhKNVgyRjFkR2hmY0dGemMzZHZjbVE9In19fQ==
+  .dockerconfigjson: eyJhdXRocyI6eyJ5b3VewyX3JlZ2lzdHJ5X3VybCI6eyJ1c2VybmFtZSI6InlvdXJfcmVnaXN0cnlfdXNlcm5hbWUiLCJwYXNzd29yZCwewI6InlvdXJfcmVnaXN0cnlfYXV0aF9wYXNzd29yZCIsImVtYWlsIjoieW91cl9lbWFpbF9hZGRyZXNzIiwiYXV0fdjbDl5WldkcGMzUnllVjkxYzJWeWJtRnRaVHA1YjNWeVgzSmxaMmx6ZEhKNVgyRjFkR2hmY0dGemMzZHZjbVE9In19fQ==
 kind: Secret
 metadata:
   creationTimestamp: null
