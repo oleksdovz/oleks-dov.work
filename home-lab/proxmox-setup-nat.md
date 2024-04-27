@@ -1,7 +1,5 @@
 # How to Set Up NAT in Proxmox: A Step-by-Step Guide
 
-[[toc]]
-
 
 ## **Introduction:**
 
