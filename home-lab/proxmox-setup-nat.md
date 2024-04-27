@@ -51,6 +51,7 @@ iface vmbr0 inet static
     bridge-ports eno1
     bridge-stp off
     bridge-fd 0
+############
 
 auto vmbr100
 iface vmbr100 inet static
@@ -63,6 +64,7 @@ iface vmbr100 inet static
     post-up   iptables -A POSTROUTING -t nat -s '192.168.100.0/24' -j MASQUERADE 
     post-down iptables -t nat -D POSTROUTING -s '192.168.100.0/24' -o vmbr0 -j MASQUERADE 
 
+############
 ```
 
 Replace `192.168.100.1/24` with your server's public IP address. Adjust the subnet (`'192.168.100.0/24'`) as per your internal network configuration.
