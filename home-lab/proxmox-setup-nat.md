@@ -46,23 +46,23 @@ iface eno1 inet manual
 
 auto vmbr0
 iface vmbr0 inet static
-	address 192.168.0.5/24
-	gateway 192.168.0.1
-	bridge-ports eno1
-	bridge-stp off
-	bridge-fd 0
+    address 192.168.0.5/24
+    gateway 192.168.0.1
+    bridge-ports eno1
+    bridge-stp off
+    bridge-fd 0
 
 auto vmbr100
 iface vmbr100 inet static
-	address 192.168.100.1/24
-	bridge-ports none
-	bridge-stp off
-	bridge-fd 0
+    address 192.168.100.1/24
+    bridge-ports none
+    bridge-stp off
+    bridge-fd 0
 
-	post-up echo 1 > /proc/sys/net/ipv4/ip_forward
-	post-up   iptables -t nat -A POSTROUTING -s '192.168.100.0/24' -o vmbr0 -j MASQUERADE
-	post-up   iptables -A POSTROUTING -t nat -s '192.168.100.0/24' -j MASQUERADE
-	post-down iptables -t nat -D POSTROUTING -s '192.168.100.0/24' -o vmbr0 -j MASQUERADE
+    post-up echo 1 > /proc/sys/net/ipv4/ip_forward
+    post-up   iptables -t nat -A POSTROUTING -s '192.168.100.0/24' -o vmbr0 -j MASQUERADE
+    post-up   iptables -A POSTROUTING -t nat -s '192.168.100.0/24' -j MASQUERADE
+    post-down iptables -t nat -D POSTROUTING -s '192.168.100.0/24' -o vmbr0 -j MASQUERADE
 
 ```
 
