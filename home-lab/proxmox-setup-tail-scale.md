@@ -1,6 +1,7 @@
 ## Deploy Tailscale and Configure it as an Exit Node
 
-Tailscale offers a powerful mesh VPN solution that simplifies secure networking across geographically dispersed devices. This guide will walk you through deploying Tailscale and configuring a device to function as an exit node, routing traffic for other connected devices.
+[Tailscale](https://tailscale.com/) offers a powerful mesh VPN solution that simplifies secure networking across geographically dispersed devices. This guide will walk you through deploying Tailscale and configuring a device to function as an exit node, routing traffic for other connected devices.
+
 
 **Understanding Exit Nodes**
 
@@ -18,9 +19,9 @@ Before we dive in, it's crucial to understand exit nodes. In a traditional VPN, 
 curl -fsSL https://tailscale.com/install.sh | sh
 ```
 
-2. **Join the Tailscale Network:** Run the `tailscale up` command and follow the prompts to create a new device or join an existing Tailscale network.
+1. **Join the Tailscale Network:** Run the `tailscale up` command and follow the prompts to create a new device or join an existing Tailscale network.
 
-3. **Enable Exit Node Functionality:**  There are two methods to enable exit node functionality:
+2. **Enable Exit Node Functionality:**  There are two methods to enable exit node functionality:
 
    * **Using the Tailscale Web Dashboard:**  
      * Log in to your Tailscale account at [https://login.tailscale.com/](https://login.tailscale.com/).
@@ -32,7 +33,7 @@ curl -fsSL https://tailscale.com/install.sh | sh
      * Open a terminal window on the exit node device.
      * Run the command `tailscale up --advertise-exit-node`.
 
-4. **Enabling Exit Node on Client Devices:**  
+3. **Enabling Exit Node on Client Devices:**  
   On devices that will utilize the exit node for internet traffic:
      * Right-click the Tailscale system tray icon (Windows) or menu bar icon (Mac).
      * Select "Exit Node."
