@@ -14,7 +14,7 @@ Before we dive in, it's crucial to understand exit nodes. In a traditional VPN, 
 
 **Deployment Steps**
 
-1. **Install Tailscale:** Download and install Tailscale on your chosen exit node device following the official instructions for your operating system [https://tailscale.com/download](https://tailscale.com/download).
+0. **Install Tailscale:** Download and install Tailscale on your chosen exit node device following the official instructions for your operating system [https://tailscale.com/download](https://tailscale.com/download).
 ```
 curl -fsSL https://tailscale.com/install.sh | sh
 ```
