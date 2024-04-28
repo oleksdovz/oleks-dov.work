@@ -9,3 +9,7 @@
 - [How to Set Up NAT in Proxmox](home-lab/proxmox-setup-nat.md)
 - [Deploy Tailscale and Configure it as an Exit Node](home-lab/proxmox-setup-tail-scale.md)
 
+
+
+# Kuebernetes tools:
+- [kubecui](https://github.com/pymag09/kubecui/)
