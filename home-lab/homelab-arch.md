@@ -1,14 +1,27 @@
+
 ```mermaid
-graph TD
-A[ISP #1 ] --> C[Mikrotik роутер]
-B[ISP #2 ] --> C[Mikrotik роутер]
-C --> D1[HP ElitDesk]
-C --> D2[OrangePi 5]
-C --> D3[Samsung TV]
-C --> D4[LG TV]
-C --> D5[SmartHome Aqara GW ]
+graph LR
+  subgraph Internet
+    A[ISP #1]
+    B[ISP #2]
+  end
 
+  subgraph Local Network
+    C[MikroTik router]
+    D[HP ElitDesk PC]
+    E[OrangePi SBC]
+    F[Samsung TV]
+    G[LG TV]
+    H[SmartHome 'Aqara GW']
+  end
 
+  A --> C
+  B --> C
+  C --> D
+  C --> E
+  C --> F
+  C --> G
+  C --> H
 ```
 
 ```mermaid
