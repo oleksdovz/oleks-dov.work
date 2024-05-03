@@ -1,6 +1,3 @@
-
-
-vzdump 100 --mode snapshot --storage local --node hp --notes-template debian --remove 0 --compress zstd --notification-mode auto
 ## Backing Up and Restoring Containers in Proxmox VE (CLI)
 
 This guide shows how to create a container backup and restore it using the command line in Proxmox VE.
