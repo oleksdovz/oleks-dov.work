@@ -1,9 +1,7 @@
-:toc: macro
-:toc-title:
-:toclevels: 99
-# Title
-
-toc::[]
+- [How-to:](#how-to)
+- [Home-lab:](#home-lab)
+- [Proxmox CLI](#proxmox-cli)
+- [Kuebernetes tools:](#kuebernetes-tools)
 
 # How-to:
 - [how-to: create kubernetes pull secrets](how-to/how-to-create-kubernetes-pull-secrets.md)
