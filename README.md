@@ -1,12 +1,12 @@
-- [How-to:](#how-to)
-- [Home-lab:](#home-lab)
+- [How-to](#how-to)
+- [Home-lab](#home-lab)
 - [Proxmox CLI](#proxmox-cli)
 - [Kuebernetes tools:](#kuebernetes-tools)
   
 ---
 
 
-# How-to:
+# How-to
 - [how-to: create kubernetes pull secrets](how-to/how-to-create-kubernetes-pull-secrets.md)
 - [how-to: zsh terragrunt completion ](how-to/how-zsh-terragrunt-completion.md)
 - [how-to: bash variable substitution](how-to/how-bash-variable-substitution.md)
@@ -14,7 +14,7 @@
 ---
 
 
-# Home-lab:
+# Home-lab
 - [How to Set Up NAT in Proxmox](home-lab/proxmox-setup-nat.md)
 - [Deploy Tailscale and Configure it as an Exit Node](home-lab/proxmox-setup-tail-scale.md)
 ---
