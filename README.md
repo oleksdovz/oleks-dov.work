@@ -1,9 +1,8 @@
-# TOC
-- [TOC](#toc)
 - [How-to:](#how-to)
 - [Home-lab:](#home-lab)
 - [Proxmox CLI](#proxmox-cli)
 - [Kuebernetes tools:](#kuebernetes-tools)
+  
 ---
 
 
