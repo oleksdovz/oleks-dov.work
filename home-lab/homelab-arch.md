@@ -4,28 +4,60 @@
 ## Networking
 This diagram illustrates a network infrastructure with two Internet Service Providers (ISPs).
 ```mermaid
-graph LR
-  subgraph Internet
-    A[ISP #1]
-    B[ISP #2]
-  end
-
-  subgraph Local Network
-    C[MikroTik router]
-    D[HP ElitDesk PC]
-    E[OrangePi SBC]
-    F[Samsung TV]
-    G[LG TV]
-    H[SmartHome 'Aqara GW']
-  end
-
-  A --> C
-  B --> C
-  C --> D
-  C --> E
-  C --> F
-  C --> G
-  C --> H
+flowchart TD
+    subgraph AWS
+        VPC[AWS VPC]
+        PrivateSubnets[Private Subnets]
+        NAT[NAT Gateway]
+        KMS[KMS Key Management]
+        S3[S3 Buckets]
+        ECR[Private ECR]
+        EKSCluster[EKS Cluster]
+        CloudWatchLogs[CloudWatch Log Groups]
+        S3 --> KMS
+        ECR --> KMS
+        PrivateSubnets --> NAT
+        PrivateSubnets --> EKSCluster
+        PrivateSubnets --> S3
+        PrivateSubnets --> ECR
+        EKSCluster --> CloudWatchLogs
+        EKSCluster --> NginxIngress[Nginx Ingress Controller via FluxCD]
+        EKSCluster --> Autoscaler[AWS Autoscaler via FluxCD]
+        EKSCluster --> CloudflareTunnel[Cloudflare Tunnel]
+        CloudflareTunnel --> NginxIngress
+        EKSCluster --> GitLabRunner[GitLab Runner via FluxCD]
+        EKSCluster --> PostgresDB[Postgres Database via FluxCD]
+        EKSCluster --> Redis[Redis via FluxCD]
+        EKSCluster --> Applications[Applications via FluxCD]
+        PostgresDB --> KMS
+        Redis --> KMS
+    end
+    
+    subgraph Cloudflare
+        CFAccount[Cloudflare Account]
+        DNS[DNS Records for DEV]
+        Cache[Cache Configuration]
+        SecurityRules[Security Rules and DDoS Protection]
+        CFApp[Application Authentication]
+    end
+    
+    subgraph GitLab
+        GitLabRepo[GitLab Repo for FluxCD]
+        CI_CD_Pipelines[CI/CD Pipelines]
+        GitLabRepo --> CI_CD_Pipelines
+    end
+    
+    NAT --> Internet
+    CFAccount --> DNS
+    CFAccount --> Cache
+    CFAccount --> SecurityRules
+    CFAccount --> CFApp
+    CFApp --> Applications
+    
+    subgraph User
+        User[End User]
+        User --> CFApp
+    end
 ```
 Description:
 - Two ISPs provide redundant internet connectivity.
