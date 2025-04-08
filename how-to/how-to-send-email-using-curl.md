@@ -12,6 +12,7 @@ You'll need:
 ⚠️ Use app-specific passwords or tokens if 2FA is enabled on your email provider.
 
 
+
 ## Option 1: Using curl with SMTP (Plain Auth)
 
 Here’s how to send a basic email via SMTP
