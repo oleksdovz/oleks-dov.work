@@ -1,5 +1,5 @@
 # To create a read replica in AWS RDS for PostgreSQL, follow these steps:
-
+---
 ## Prerequisites:
 - Source RDS instance must be running PostgreSQL and have automated backups enabled.
 - The source DB must be in a supported version (PostgreSQL ≥ 9.3).
