@@ -12,7 +12,7 @@
 - [how-to: bash variable substitution](how-to/how-bash-variable-substitution.md)
 - [how-to: install casaos](how-to/how-install-casaos.md)
 - [how-to: How to Send Email Using curl in Your DevOps Workflows](how-to/how-to-send-email-using-curl.md)
-- [how-to: To create a read replica in AWS RDS for PostgreSQL](how-rds-read-replica.md)
+- [how-to: To create a read replica in AWS RDS for PostgreSQL](how-to/how-rds-read-replica.md)
 ---
 
 
