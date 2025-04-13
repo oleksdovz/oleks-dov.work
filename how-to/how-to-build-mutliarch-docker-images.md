@@ -42,4 +42,4 @@ podman manifest push $version
 ```
 ---
 Result
-![alt text](media/p1-how-to-build-mutliarch-docker-images.png)
+![Docker Hub](https://github.com/oleksdovz/oleks-dov.work/blob/main/how-to/media/p1-how-to-build-mutliarch-docker-images.png?raw=true)
