@@ -7,12 +7,13 @@
 
 ---
 # How-to
-- [how-to: create kubernetes pull secrets](how-to/how-to-create-kubernetes-pull-secrets.md)
-- [how-to: zsh terragrunt completion ](how-to/how-zsh-terragrunt-completion.md)
-- [how-to: bash variable substitution](how-to/how-bash-variable-substitution.md)
-- [how-to: install casaos](how-to/how-install-casaos.md)
-- [how-to: How to Send Email Using curl in Your DevOps Workflows](how-to/how-to-send-email-using-curl.md)
-- [how-to: To create a read replica in AWS RDS for PostgreSQL](how-to/how-rds-read-replica.md)
+- [How-to: create kubernetes pull secrets](how-to/how-to-create-kubernetes-pull-secrets.md)
+- [How-to: zsh terragrunt completion ](how-to/how-zsh-terragrunt-completion.md)
+- [How-to: bash variable substitution](how-to/how-bash-variable-substitution.md)
+- [How-to: install casaos](how-to/how-install-casaos.md)
+- [How-to: How to Send Email Using curl in Your DevOps Workflows](how-to/how-to-send-email-using-curl.md)
+- [How-to: To create a read replica in AWS RDS for PostgreSQL](how-to/how-rds-read-replica.md)
+- [How-to: Build Multi-Architecture Docker Images with Podman](how-to/how-to-build-mutliarch-docker-images.md)
 ---
 
 
