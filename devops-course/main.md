@@ -25,7 +25,7 @@
 
 ## 🛠️ Програма курсу
 
-### 🔹 Місяць 1 — Основи Linux у VirtualBox  
+### 🔹 Місяць 1 — Основи Linux у VirtualBox/WSL
 👉 перші кроки у світі серверів, Bash, SSH  
 
 ### 🔹 Місяць 2 — Git та Docker  
