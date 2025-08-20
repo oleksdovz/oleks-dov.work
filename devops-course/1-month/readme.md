@@ -4,11 +4,11 @@
 👉 перші кроки у світі серверів, Bash, SSH  
 # 📍 Місяць 1 — Основи комп’ютера, Linux та мереж (VirtualBox/WSL)
 
-### 🔹 Тиждень 1. Що таке комп’ютер?
-- ⚙️ Апаратне забезпечення: CPU, RAM, диск, мережа  
-- 💻 Програмне забезпечення: ОС, драйвери, програми  
+### [🔹 Тиждень 1. Що таке комп’ютер?](https://github.com/oleksdovz/oleks-dov.work/blob/main/devops-course/1-month/1-week/readme.md)
+- [⚙️ Апаратне забезпечення: CPU, RAM, диск](https://github.com/oleksdovz/oleks-dov.work/blob/main/devops-course/1-month/1-week/1-hardware.md)
+- [💻 Програмне забезпечення: ОС, драйвери, програми](https://github.com/oleksdovz/oleks-dov.work/blob/main/devops-course/1-month/1-week/2-software.md)
 - 🧩 Як ОС керує ресурсами комп’ютера  
-- ✅ **Практика**: перевірити характеристики свого ПК (CPU, RAM, диск)  
+- [✅ **Практика**: перевірити характеристики свого ПК (CPU, RAM, диск)](https://github.com/oleksdovz/oleks-dov.work/blob/main/devops-course/1-month/1-week/1-hardware.md#-%D0%BF%D1%80%D0%B0%D0%BA%D1%82%D0%B8%D0%BA%D0%B0)
 
 ---
 
