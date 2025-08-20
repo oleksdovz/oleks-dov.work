@@ -25,7 +25,7 @@
 
 ## 🛠️ Програма курсу
 
-### 🔹 Місяць 1 — Основи Linux у VirtualBox/WSL
+### 🔹 [Місяць 1 — Основи Linux у VirtualBox/WSL](https://github.com/oleksdovz/oleks-dov.work/blob/main/devops-course/1-month/main.md)
 👉 перші кроки у світі серверів, Bash, SSH  
 
 ### 🔹 Місяць 2 — Git та Docker  
