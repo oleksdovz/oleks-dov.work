@@ -24,6 +24,7 @@
 | `ssh` | Підключається до віддаленого сервера. |
 | `ssh-copy-id` | Копіює публічний ключ на сервер для входу без пароля. |
 | `ssh-keygen` | Генерує SSH-ключі для безпечного з’єднання. |
+| `sysctl` | Переглядає або змінює параметри ядра Linux у реальному часі. |
 | `sudo` | Виконує команди від імені адміністратора (root). |
 | `systemctl` | Керує службами (start, stop, restart, enable, status). |
 | `tail` | Виводить останні рядки файлу (часто для логів). |
@@ -56,6 +57,7 @@
 | `ssh` | Підключається до віддаленого сервера. | 1. `ssh ubuntu@10.0.0.12` — стандартний порт 22.<br>2. `ssh -p 2222 admin@server.com` — інший порт.<br>3. `ssh -i ~/.ssh/id_rsa user@host` — вказати приватний ключ.<br>4. `ssh -v user@host` — детальна діагностика. |
 | `ssh-copy-id` | Копіює публічний ключ на сервер. | 1. `ssh-copy-id user@192.168.1.5` — додати стандартний ключ.<br>2. `ssh-copy-id -i ~/.ssh/work_key.pub dev@server.com` — додати конкретний ключ.<br>3. `ssh-copy-id -p 2222 user@host` — через інший порт. |
 | `ssh-keygen` | Генерує нові SSH ключі для автентифікації. | 1. `ssh-keygen -t rsa -b 4096 -C "user@example.com"` — RSA ключ.<br>2. `ssh-keygen -t ed25519 -C "admin@server.com"` — Ed25519 ключ.<br>3. `ssh-keygen -f ~/.ssh/custom_key` — інша назва файлу.<br>4. `ssh-keygen -R host.example.com` — видалити старий ключ сервера. |
+| `sysctl` | Використовується для перегляду та зміни параметрів ядра Linux. | 1. `sysctl -a` — показує всі поточні параметри ядра.<br>2. `sysctl net.ipv4.ip_forward` — перевіряє, чи дозволено пересилання пакетів між інтерфейсами.<br>3. `sudo sysctl -w net.ipv4.ip_forward=1` — тимчасово вмикає пересилання IP-пакетів.<br>4. `sysctl vm.swappiness` — показує параметр, що визначає, як часто ядро використовує swap.<br>5. `sudo sysctl -p /etc/sysctl.conf` — застосовує зміни з файлу конфігурації `sysctl.conf`. |
 | `sudo` | Виконує команди з правами адміністратора (root). | 1. `sudo apt update` — оновлює індекс пакетів.<br>2. `sudo reboot` — перезапускає систему.<br>3. `sudo nano /etc/ssh/sshd_config` — редагує конфіг SSH.<br>4. `sudo useradd devops` — створює користувача.<br>5. `sudo systemctl status ssh` — статус сервісу SSH. |
 | `systemctl` | Інструмент для управління системними сервісами. | 1. `systemctl status ssh` — перевірити стан.<br>2. `systemctl start ssh` — запустити сервіс.<br>3. `systemctl stop ssh` — зупинити сервіс.<br>4. `systemctl enable ssh` — увімкнути автозапуск.<br>5. `sudo systemctl restart ssh` — перезапуск після змін. |
 | `tail` | Показує останні рядки файлу або слідкує у реальному часі. | 1. `tail -n 50 /var/log/syslog` — останні 50 рядків.<br>2. `tail -f /var/log/auth.log` — потік логів авторизації.<br>3. `tail -n 100 /var/log/nginx/access.log` — останні запити до вебсервера.<br>4. `tail -f /var/log/postgresql/postgresql.log` — моніторинг логів БД. |
