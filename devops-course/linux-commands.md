@@ -9,17 +9,30 @@
 
 | Команда | Призначення |
 |----------|--------------|
-| `systemctl` | Керує службами (start, stop, restart, enable, status). |
-| `sudo` | Виконує команди від імені адміністратора (root). |
-| `tail` | Виводить останні рядки файлу (часто для логів). |
-| `ls` | Відображає список файлів і папок. |
-| `cat` | Виводить вміст файлу у термінал. |
-| `nano` | Простий текстовий редактор у терміналі. |
-| `vim` | Потужний текстовий редактор для досвідчених користувачів. |
-| `chmod` | Змінює права доступу до файлів і каталогів. |
-| `mkdir` | Створює каталоги. |
-| `ssh-keygen` | Генерує SSH-ключі для безпечного з’єднання. |
 | `apt` | Керує пакетами (встановлення, оновлення, видалення програм). |
+| `cat` | Виводить вміст файлу у термінал. |
+| `curl` | Завантажує або надсилає дані за URL (HTTP/HTTPS); підтримує методи, заголовки, редіректи. |
+| `dpkg` | Низькорівневий інструмент для керування Debian-пакетами (.deb). |
+| `free` | Показує використання оперативної пам’яті. |
+| `hostname` | Показує або змінює ім’я системи. |
+| `less` | Переглядає вміст файлів посторінково (з можливістю прокручування). |
+| `ls` | Відображає список файлів і папок. |
+| `mkdir` | Створює каталоги. |
+| `more` | Відображає вміст файлу сторінками у терміналі. |
+| `nano` | Простий текстовий редактор у терміналі. |
+| `scp` | Копіює файли між локальною машиною та сервером через SSH. |
+| `ssh` | Підключається до віддаленого сервера. |
+| `ssh-copy-id` | Копіює публічний ключ на сервер для входу без пароля. |
+| `ssh-keygen` | Генерує SSH-ключі для безпечного з’єднання. |
+| `sudo` | Виконує команди від імені адміністратора (root). |
+| `systemctl` | Керує службами (start, stop, restart, enable, status). |
+| `tail` | Виводить останні рядки файлу (часто для логів). |
+| `top` | Показує активні процеси в системі у реальному часі. |
+| `touch` | Створює порожній файл або оновлює час доступу/модифікації файлу. |
+| `uptime` | Показує, скільки часу працює сервер. |
+| `vim` | Потужний текстовий редактор для досвідчених користувачів. |
+| `zip` | Архівує файли або каталоги у формат ZIP. |
+| `wget` | Завантажує файли по HTTP/HTTPS/FTP; підтримує докачування та рекурсивне завантаження. |
 
 ---
 
@@ -27,37 +40,31 @@
 
 | 🧰 Команда | 📝 Опис | 💡 Приклади використання з поясненнями |
 |-------------|---------|----------------------------------------|
-| `ssh-keygen -t rsa -b 4096 -C "email@example.com"` | Генерує пару SSH-ключів (приватний + публічний). | 1️⃣ `ssh-keygen -t rsa -b 4096 -C "dev@example.com"` — створює ключ стандартного типу RSA. <br>2️⃣ `ssh-keygen -t ed25519 -C "server@example.com"` — створює сучасний Ed25519 ключ. <br>3️⃣ `ssh-keygen -f ~/.ssh/mykey` — зберігає ключ під іншим ім’ям. <br>4️⃣ `ssh-keygen -p -f ~/.ssh/id_rsa` — змінює пароль для ключа. |
-| `ssh-copy-id -i ~/.ssh/id_rsa.pub user@host` | Копіює публічний ключ на сервер для входу без пароля. | 1️⃣ `ssh-copy-id user@192.168.1.5` — копіює стандартний ключ. <br>2️⃣ `ssh-copy-id -i ~/.ssh/work_key.pub dev@server.com` — додає конкретний ключ. <br>3️⃣ `ssh-copy-id -p 2222 user@host` — додає ключ через кастомний порт. |
-| `ssh user@host` | Підключається до віддаленого сервера. | 1️⃣ `ssh ubuntu@10.0.0.12` — стандартне підключення. <br>2️⃣ `ssh -p 2222 admin@server.com` — через інший порт. <br>3️⃣ `ssh -i ~/.ssh/id_rsa user@host` — з певним приватним ключем. <br>4️⃣ `ssh -v user@host` — детальний вивід для діагностики. |
-| `mkdir -p ~/.ssh` | Створює каталог `.ssh`, якщо його немає. | 1️⃣ `mkdir ~/.ssh` — створює основну директорію. <br>2️⃣ `mkdir -p ~/.ssh/configs` — створює вкладену структуру. |
-| `chmod 700 ~/.ssh` | Обмежує доступ до каталогу `.ssh` лише для власника. | 1️⃣ `chmod 700 ~/.ssh` — правильні права доступу. <br>2️⃣ `chmod 755 ~/.ssh` — дозволяє перегляд іншим користувачам (небажано). |
-| `chmod 600 ~/.ssh/authorized_keys` | Обмежує доступ до файлу публічних ключів. | 1️⃣ `chmod 600 ~/.ssh/authorized_keys` — лише власник має доступ. <br>2️⃣ `chmod 644 ~/.ssh/authorized_keys` — дозволяє читання іншим (небезпечно). |
-| `nano ~/.ssh/authorized_keys` | Відкриває файл для вставки публічного ключа. | 1️⃣ `nano ~/.ssh/authorized_keys` — вставити свій ключ. <br>2️⃣ `nano /etc/ssh/sshd_config` — редагування конфігурації SSH. |
-| `vim ~/.ssh/authorized_keys` | Відкриває файл у потужному редакторі `vim`. | 1️⃣ `vim ~/.ssh/authorized_keys` — редагування ключів. <br>2️⃣ `vim /etc/ssh/sshd_config` — змінити конфігурацію SSH. |
-| `sudo systemctl restart ssh` | Перезапускає SSH сервіс після змін. | 1️⃣ `sudo systemctl restart ssh` — застосовує зміни. <br>2️⃣ `sudo systemctl restart nginx` — перезапуск вебсервісу. <br>3️⃣ `sudo systemctl restart postgresql` — перезапуск БД. |
-| `sudo systemctl status ssh` | Перевіряє стан SSH сервісу. | 1️⃣ `sudo systemctl status ssh` — детальний статус. <br>2️⃣ `sudo systemctl is-enabled ssh` — чи автозапускається. <br>3️⃣ `sudo systemctl list-units --type=service` — усі активні сервіси. |
-| `cat ~/.ssh/id_rsa.pub` | Виводить публічний ключ у термінал. | 1️⃣ `cat ~/.ssh/id_rsa.pub` — для копіювання. <br>2️⃣ `cat /etc/os-release` — перегляд версії ОС. <br>3️⃣ `cat /proc/cpuinfo` — інформація про процесор. |
-| `ls -la ~/.ssh` | Виводить список файлів з правами доступу. | 1️⃣ `ls -la ~/.ssh` — перегляд файлів. <br>2️⃣ `ls -lh` — форматований розмір. <br>3️⃣ `ls -lt` — сортування за датою. <br>4️⃣ `ls -R` — рекурсивний перегляд. |
-| `tail -f /var/log/auth.log` | Перегляд останніх рядків логу в реальному часі. | 1️⃣ `sudo tail -f /var/log/auth.log` — моніторинг SSH-логінів. <br>2️⃣ `tail -n 50 /var/log/syslog` — останні 50 рядків. <br>3️⃣ `tail -f /var/log/nginx/access.log` — лог вебсервера. |
-| `sudo` | Виконує команду з правами адміністратора. | 1️⃣ `sudo apt update` — оновлює репозиторії. <br>2️⃣ `sudo nano /etc/hosts` — редагує системний файл. <br>3️⃣ `sudo systemctl restart ssh` — перезапускає сервіс. |
-| `systemctl` | Інструмент для управління системними сервісами. | 1️⃣ `systemctl status ssh` — перевіряє стан. <br>2️⃣ `systemctl start ssh` — запускає сервіс. <br>3️⃣ `systemctl stop ssh` — зупиняє сервіс. <br>4️⃣ `systemctl enable ssh` — додає в автозапуск. |
-| `uptime` | Показує, скільки часу працює сервер. | 1️⃣ `uptime` — базова інформація. <br>2️⃣ `uptime -p` — гарне форматування ("up 5 hours"). |
-| `df -h` | Показує використання дискового простору. | 1️⃣ `df -h` — усі диски. <br>2️⃣ `df -h /home` — конкретна точка монтування. |
-| `free -h` | Показує використання оперативної пам’яті. | 1️⃣ `free -h` — загальний стан RAM. <br>2️⃣ `watch -n 2 free -h` — моніторинг у реальному часі. |
-| `sudo reboot` | Перезапускає систему. | 1️⃣ `sudo reboot` — негайний рестарт. <br>2️⃣ `sudo shutdown -r now` — еквівалент. |
-| `hostname` | Показує або змінює ім’я системи. | 1️⃣ `hostname` — показує поточне. <br>2️⃣ `sudo hostnamectl set-hostname server1` — встановлює нове. |
-| `systemctl` | Керує системними службами (запуск, зупинка, статус, автозапуск). | 1. `systemctl status ssh` — показує стан SSH сервісу.<br>2. `sudo systemctl restart ssh` — перезапускає SSH.<br>3. `systemctl is-enabled ssh` — перевіряє автозапуск.<br>4. `systemctl list-units --type=service` — показує усі активні сервіси.<br>5. `systemctl disable apache2` — вимикає автозапуск сервісу. |
-| `sudo` | Виконує команди з правами адміністратора (root). | 1. `sudo apt update` — оновлює список пакетів.<br>2. `sudo reboot` — перезапускає систему.<br>3. `sudo nano /etc/ssh/sshd_config` — відкриває файл конфігурації SSH.<br>4. `sudo useradd devops` — створює нового користувача.<br>5. `sudo systemctl status ssh` — переглядає статус сервісу SSH. |
-| `tail` | Виводить останні рядки файлу або спостерігає зміни в реальному часі. | 1. `tail -n 20 /var/log/syslog` — показує останні 20 рядків системного логу.<br>2. `sudo tail -f /var/log/auth.log` — відображає потік логів авторизації.<br>3. `tail -f /var/log/nginx/access.log` — моніторить доступи до вебсервера. |
-| `ls` | Виводить список файлів і папок у каталозі. | 1. `ls -la` — детальний список з правами доступу.<br>2. `ls -lh` — показує розміри файлів у зручному форматі.<br>3. `ls -lt` — сортує файли за часом модифікації.<br>4. `ls /etc/ssh` — перегляд конфігурацій SSH. |
-| `cat` | Виводить вміст файлу у термінал. | 1. `cat ~/.ssh/id_rsa.pub` — показує публічний ключ.<br>2. `cat /etc/os-release` — перегляд інформації про систему.<br>3. `cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys` — додає ключ у файл. |
-| `nano` | Простий текстовий редактор у терміналі. | 1. `nano ~/.ssh/authorized_keys` — відкриває файл ключів.<br>2. `sudo nano /etc/ssh/sshd_config` — редагує конфігурацію SSH.<br>3. `nano newfile.txt` — створює або редагує текстовий файл. |
-| `vim` | Потужний текстовий редактор (альтернатива nano). | 1. `vim ~/.ssh/config` — відкриває SSH конфіг.<br>2. `vim /etc/hosts` — редагує хостнейми.<br>3. `:wq` — зберегти і вийти.<br>4. `:q!` — вийти без збереження. |
-| `chmod` | Змінює права доступу до файлів і каталогів. | 1. `chmod 700 ~/.ssh` — дозволяє доступ лише власнику.<br>2. `chmod 600 ~/.ssh/authorized_keys` — лише власник може читати/писати.<br>3. `chmod +x script.sh` — робить файл виконуваним.<br>4. `chmod 644 file.txt` — дозволяє читати всім, змінювати лише власнику. |
-| `mkdir` | Створює нові каталоги. | 1. `mkdir backups` — створює папку `backups`.<br>2. `mkdir -p /opt/projects/demo` — створює вкладені каталоги.<br>3. `mkdir -vp ~/.ssh/keys` — показує створення каталогу у виводі. |
-| `ssh-keygen` | Генерує нові SSH ключі для автентифікації. | 1. `ssh-keygen -t rsa -b 4096 -C "user@example.com"` — створює RSA ключ.<br>2. `ssh-keygen -t ed25519 -C "admin@server.com"` — сучасний тип ключа.<br>3. `ssh-keygen -f ~/.ssh/custom_key` — зберігає ключ під іншим ім’ям.<br>4. `ssh-keygen -R host.example.com` — видаляє старий ключ сервера. |
-| `apt` | Інструмент для керування пакетами у системах Debian/Ubuntu. | 1. `sudo apt update` — оновлює список доступних пакетів.<br>2. `sudo apt upgrade` — встановлює оновлення для всіх пакетів.<br>3. `sudo apt install nginx` — встановлює вебсервер nginx.<br>4. `sudo apt remove nginx` — видаляє пакет nginx.<br>5. `sudo apt autoremove` — видаляє непотрібні залежності. |
+| `apt` | Інструмент для керування пакетами у системах Debian/Ubuntu. | 1. `sudo apt update` — оновлює індекс пакетів.<br>2. `sudo apt upgrade -y` — встановлює оновлення для всіх пакетів.<br>3. `sudo apt install nginx -y` — інсталяція вебсервера nginx.<br>4. `sudo apt remove nginx -y` — видаляє пакет nginx.<br>5. `sudo apt autoremove && sudo apt clean` — чистить зайві залежності й кеш. |
+| `cat` | Виводить вміст файлу у термінал. | 1. `cat ~/.ssh/id_rsa.pub` — показує публічний ключ.<br>2. `cat /etc/os-release` — інформація про систему.<br>3. `cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys` — додає ключ до списку авторизації. |
+| `curl` | Інструмент для передачі даних через URL (HTTP/HTTPS, заголовки, методи, редіректи). | 1. `curl -I https://example.com` — лише HTTP-заголовки.<br>2. `curl -L https://example.com/file.tar.gz -o file.tar.gz` — слідує редіректам і зберігає файл.<br>3. `curl -H "Authorization: Bearer TOKEN" https://api.example.com/users` — додає заголовок авторизації.<br>4. `curl -X POST -H "Content-Type: application/json" -d '{"name":"Bob"}' https://api.example.com/users` — POST із JSON-тілом.<br>5. `curl -fsSL https://get.docker.com | sh` — тихе завантаження/виконання інсталятора (обережно). |
+| `dpkg` | Керує встановленням, видаленням і перевіркою Debian-пакетів (.deb). | 1. `sudo dpkg -i package.deb` — встановлює локальний `.deb`.<br>2. `sudo dpkg -r package-name` — видаляє пакет.<br>3. `dpkg -l | grep nginx` — чи встановлений nginx.<br>4. `dpkg -L package-name` — які файли належать пакету.<br>5. `sudo dpkg-reconfigure tzdata` — перевстановлення конфігурації (часовий пояс). |
+| `df -h` | Показує використання дискового простору. | 1. `df -h` — усі розділи у зручному форматі.<br>2. `df -h /home` — стан конкретного розділу. |
+| `free -h` | Показує використання оперативної пам’яті. | 1. `free -h` — загальний стан RAM/SWAP.<br>2. `watch -n 2 free -h` — моніторинг у реальному часі. |
+| `hostname` | Показує або змінює ім’я системи. | 1. `hostname` — поточний хостнейм.<br>2. `sudo hostnamectl set-hostname server1` — встановлює нове ім’я. |
+| `less` | Переглядає вміст великих файлів з прокручуванням. | 1. `less /var/log/syslog` — системні логи.<br>2. `less /etc/ssh/sshd_config` — перегляд конфігурації SSH.<br>3. `cat file.txt | less` — перегляд через конвеєр.<br>4. `less +G /var/log/auth.log` — відкрити кінець файлу. |
+| `ls` | Виводить список файлів і папок у каталозі. | 1. `ls -la` — детальний список з правами.<br>2. `ls -lh` — розміри у зручному форматі.<br>3. `ls -lt` — сортування за часом.<br>4. `ls /etc/ssh` — перегляд конфігів SSH. |
+| `mkdir` | Створює нові каталоги. | 1. `mkdir backups` — створює папку `backups`.<br>2. `mkdir -p /opt/projects/demo` — створює вкладені каталоги.<br>3. `mkdir -vp ~/.ssh/keys` — показує створені каталоги у виводі. |
+| `more` | Показує вміст файлу посторінково. | 1. `more /etc/passwd` — список користувачів.<br>2. `dmesg | more` — вивід ядра сторінками.<br>3. `cat long.txt | more` — розбиває довгий текст на сторінки. |
+| `nano` | Простий текстовий редактор у терміналі. | 1. `nano ~/.ssh/authorized_keys` — редагування ключів.<br>2. `sudo nano /etc/ssh/sshd_config` — конфігурація SSH.<br>3. `nano newfile.txt` — створити/редагувати файл. |
+| `scp` | Копіює файли між локальною машиною та віддаленим сервером по SSH. | 1. `scp file.txt user@host:/home/user/` — копіює файл на сервер.<br>2. `scp user@host:/var/log/syslog ./` — копіює файл із сервера у поточну теку.<br>3. `scp -r project/ user@host:/opt/backups/` — копіює каталог рекурсивно.<br>4. `scp -P 2222 file.txt user@host:/tmp/` — копіює через нестандартний порт 2222.<br>5. `scp -i ~/.ssh/id_rsa backup.tar.gz user@host:/data/` — використовує конкретний SSH-ключ для копіювання. |
+| `ssh` | Підключається до віддаленого сервера. | 1. `ssh ubuntu@10.0.0.12` — стандартний порт 22.<br>2. `ssh -p 2222 admin@server.com` — інший порт.<br>3. `ssh -i ~/.ssh/id_rsa user@host` — вказати приватний ключ.<br>4. `ssh -v user@host` — детальна діагностика. |
+| `ssh-copy-id` | Копіює публічний ключ на сервер. | 1. `ssh-copy-id user@192.168.1.5` — додати стандартний ключ.<br>2. `ssh-copy-id -i ~/.ssh/work_key.pub dev@server.com` — додати конкретний ключ.<br>3. `ssh-copy-id -p 2222 user@host` — через інший порт. |
+| `ssh-keygen` | Генерує нові SSH ключі для автентифікації. | 1. `ssh-keygen -t rsa -b 4096 -C "user@example.com"` — RSA ключ.<br>2. `ssh-keygen -t ed25519 -C "admin@server.com"` — Ed25519 ключ.<br>3. `ssh-keygen -f ~/.ssh/custom_key` — інша назва файлу.<br>4. `ssh-keygen -R host.example.com` — видалити старий ключ сервера. |
+| `sudo` | Виконує команди з правами адміністратора (root). | 1. `sudo apt update` — оновлює індекс пакетів.<br>2. `sudo reboot` — перезапускає систему.<br>3. `sudo nano /etc/ssh/sshd_config` — редагує конфіг SSH.<br>4. `sudo useradd devops` — створює користувача.<br>5. `sudo systemctl status ssh` — статус сервісу SSH. |
+| `systemctl` | Інструмент для управління системними сервісами. | 1. `systemctl status ssh` — перевірити стан.<br>2. `systemctl start ssh` — запустити сервіс.<br>3. `systemctl stop ssh` — зупинити сервіс.<br>4. `systemctl enable ssh` — увімкнути автозапуск.<br>5. `sudo systemctl restart ssh` — перезапуск після змін. |
+| `tail` | Показує останні рядки файлу або слідкує у реальному часі. | 1. `tail -n 50 /var/log/syslog` — останні 50 рядків.<br>2. `tail -f /var/log/auth.log` — потік логів авторизації.<br>3. `tail -n 100 /var/log/nginx/access.log` — останні запити до вебсервера.<br>4. `tail -f /var/log/postgresql/postgresql.log` — моніторинг логів БД. |
+| `top` | Показує інформацію про процеси, ЦП і пам’ять у реальному часі. | 1. `top` — стандартний монітор.<br>2. `top -u www-data` — процеси користувача.<br>3. `top -n 1` — одноразовий вивід.<br>4. `htop` — зручна альтернатива (якщо встановлено). |
+| `touch` | Створює порожній файл або змінює часові мітки файлу. | 1. `touch notes.txt` — створити файл/оновити мітки.<br>2. `touch -t 202501011200 file.txt` — встановити час 2025-01-01 12:00.<br>3. `touch -a file.txt` — оновити лише час доступу (atime).<br>4. `touch -m file.txt` — оновити лише час модифікації (mtime). |
+| `uptime` | Показує, як довго працює система. | 1. `uptime` — базова інформація.<br>2. `uptime -p` — «up 5 hours» у зручному форматі. |
+| `vim` | Потужний редактор тексту. | 1. `vim ~/.ssh/config` — редагування SSH-конфіга.<br>2. `vim /etc/hosts` — змінити хости.<br>3. `:wq` — зберегти і вийти.<br>4. `:q!` — вийти без збереження. |
+| `wget` | Консольний завантажувач файлів (HTTP/HTTPS/FTP). | 1. `wget https://example.com/file.iso` — завантажити файл.<br>2. `wget -O index.html https://example.com` — зберегти під іншим ім’ям.<br>3. `wget -c https://example.com/large.zip` — докачування перерваного файлу.<br>4. `wget -r -np -nH --cut-dirs=1 https://example.com/releases/` — рекурсивне завантаження каталогу.<br>5. `wget --spider -S https://example.com` — перевірити доступність URL. |
+| `zip` | Створює ZIP-архіви та розпаковує файли. | 1. `zip archive.zip file1.txt file2.txt` — створює архів з двох файлів.<br>2. `zip -r project.zip /home/user/project` — архівує каталог рекурсивно.<br>3. `unzip archive.zip` — розпаковує архів у поточну теку.<br>4. `unzip -l archive.zip` — показує вміст архіву без розпаковки.<br>5. `unzip archive.zip -d /tmp/output` — розпаковує архів у вказану директорію. |
 
 ---
 ---
@@ -67,14 +74,11 @@
 | 🧩 Завдання | 💡 Команда | 🔍 Пояснення |
 |-------------|------------|--------------|
 | Створити `.ssh` і додати ключ вручну | `mkdir -p ~/.ssh && chmod 700 ~/.ssh && cat >> ~/.ssh/authorized_keys` | Створює каталог, виставляє права, додає ключ. |
-| Копіювати ключ без `ssh-copy-id` | `cat ~/.ssh/id_rsa.pub` | `ssh user@host "mkdir -p ~/.ssh && chmod 700 ~/.ssh && cat >> ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys"` | Додає ключ на сервер і виставляє права. |
+| Копіювати ключ без `ssh-copy-id` | `cat ~/.ssh/id_rsa.pub | ssh user@host "mkdir -p ~/.ssh && chmod 700 ~/.ssh && cat >> ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys"` | Додає ключ на сервер і одразу виставляє правильні права. |
 | Перезапустити та перевірити SSH | `sudo systemctl restart ssh && sudo systemctl status ssh` | Оновлює сервіс і перевіряє стан. |
 | Вимкнути парольний вхід | `sudo sed -i 's/^#PasswordAuthentication.*/PasswordAuthentication no/' /etc/ssh/sshd_config` | Змінює параметри без відкриття файлу. |
 | Додати користувача | `sudo adduser dev && sudo usermod -aG sudo dev` | Створює користувача з правами `sudo`. |
 | Оновити систему та очистити кеш пакетів | `sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y && sudo apt clean` | Оновлює всі пакети, видаляє непотрібні залежності та очищує кеш, звільняючи місце. |
-| Оновити список доступних пакетів | `sudo apt update` | Оновлює індекс пакетів із репозиторіїв, щоб система знала про останні версії. |
-| Встановити всі оновлення системи | `sudo apt upgrade -y` | Оновлює всі пакети до актуальних версій, не змінюючи конфігурацій. |
-| Встановити текстовий редактор vim | `sudo apt install vim -y` | Завантажує і встановлює vim — потужний консольний редактор. |
 
 ---
 
