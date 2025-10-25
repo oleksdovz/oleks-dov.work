@@ -72,6 +72,13 @@
 | `vim` | Потужний текстовий редактор для досвідчених користувачів. |
 | `wget` | Завантажує файли по HTTP/HTTPS/FTP; підтримує докачування та рекурсивне завантаження. |
 | `zip` | Архівує файли або каталоги у формат ZIP. |
+
+---
+
+## 📘 Детальні приклади команд
+
+| 🧰 Команда | 📝 Опис | 💡 Приклади використання з поясненнями |
+|-------------|---------|----------------------------------------|
 | `base64` | Кодує/декодує дані. | 1. `echo 'hello' | base64` — кодує рядок.<br>2. `echo 'aGVsbG8=' | base64 --decode` — декодує.<br>3. `base64 file.txt -o file.b64` — кодує файл у Base64. |
 | `bg` | Відновлює призупинений процес у фоновому режимі. | 1. `sleep 100 &` — запустити у фоні.<br>2. `Ctrl+Z` + `bg` — відновити процес у фоні.<br>3. `jobs` — перевірити список процесів. |
 | `bzip2` | Стискає файли у формат `.bz2`. | 1. `bzip2 file.txt` — стискає файл.<br>2. `bunzip2 file.txt.bz2` — розпаковує.<br>3. `bzip2 -k file.txt` — стискає, залишаючи оригінал. |
@@ -98,13 +105,6 @@
 | `rmdir` | Видаляє **порожні** каталоги. | 1. `rmdir old_folder` — видаляє порожній каталог.<br>2. `rmdir -p a/b/c` — видаляє ланцюжок порожніх каталогів. |
 | `useradd` | Створює нового користувача. | 1. `sudo useradd dev` — додає користувача.<br>2. `sudo useradd -m -s /bin/bash dev` — створює домашню теку і оболонку.<br>3. `sudo passwd dev` — встановлює пароль. |
 | `usermod` | Змінює параметри користувача. | 1. `sudo usermod -aG sudo dev` — додає у групу `sudo`.<br>2. `sudo usermod -s /bin/zsh dev` — змінює shell.<br>3. `sudo usermod -l newname oldname` — перейменовує користувача. |
-
----
-
-## 📘 Детальні приклади команд
-
-| 🧰 Команда | 📝 Опис | 💡 Приклади використання з поясненнями |
-|-------------|---------|----------------------------------------|
 | `apt` | Інструмент для керування пакетами у системах Debian/Ubuntu. | 1. `sudo apt update` — оновлює індекс пакетів.<br>2. `sudo apt upgrade -y` — встановлює оновлення для всіх пакетів.<br>3. `sudo apt install nginx -y` — інсталяція вебсервера nginx.<br>4. `sudo apt remove nginx -y` — видаляє пакет nginx.<br>5. `sudo apt autoremove && sudo apt clean` — чистить зайві залежності й кеш. |
 | `cat` | Виводить вміст файлу у термінал. | 1. `cat ~/.ssh/id_rsa.pub` — показує публічний ключ.<br>2. `cat /etc/os-release` — інформація про систему.<br>3. `cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys` — додає ключ до списку авторизації. |
 | `curl` | Інструмент для передачі даних через URL (HTTP/HTTPS, заголовки, методи, редіректи). | 1. `curl -I https://example.com` — лише HTTP-заголовки.<br>2. `curl -L https://example.com/file.tar.gz -o file.tar.gz` — слідує редіректам і зберігає файл.<br>3. `curl -H "Authorization: Bearer TOKEN" https://api.example.com/users` — додає заголовок авторизації.<br>4. `curl -X POST -H "Content-Type: application/json" -d '{"name":"Bob"}' https://api.example.com/users` — POST із JSON-тілом.<br>5. `curl -fsSL https://get.docker.com | sh` — тихе завантаження/виконання інсталятора (обережно). |
