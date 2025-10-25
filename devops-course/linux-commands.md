@@ -19,6 +19,7 @@
 | `chmod` | Змінює права доступу до файлів і каталогів. |
 | `mkdir` | Створює каталоги. |
 | `ssh-keygen` | Генерує SSH-ключі для безпечного з’єднання. |
+| `apt` | Керує пакетами (встановлення, оновлення, видалення програм). |
 
 ---
 
@@ -56,6 +57,7 @@
 | `chmod` | Змінює права доступу до файлів і каталогів. | 1. `chmod 700 ~/.ssh` — дозволяє доступ лише власнику.<br>2. `chmod 600 ~/.ssh/authorized_keys` — лише власник може читати/писати.<br>3. `chmod +x script.sh` — робить файл виконуваним.<br>4. `chmod 644 file.txt` — дозволяє читати всім, змінювати лише власнику. |
 | `mkdir` | Створює нові каталоги. | 1. `mkdir backups` — створює папку `backups`.<br>2. `mkdir -p /opt/projects/demo` — створює вкладені каталоги.<br>3. `mkdir -vp ~/.ssh/keys` — показує створення каталогу у виводі. |
 | `ssh-keygen` | Генерує нові SSH ключі для автентифікації. | 1. `ssh-keygen -t rsa -b 4096 -C "user@example.com"` — створює RSA ключ.<br>2. `ssh-keygen -t ed25519 -C "admin@server.com"` — сучасний тип ключа.<br>3. `ssh-keygen -f ~/.ssh/custom_key` — зберігає ключ під іншим ім’ям.<br>4. `ssh-keygen -R host.example.com` — видаляє старий ключ сервера. |
+| `apt` | Інструмент для керування пакетами у системах Debian/Ubuntu. | 1. `sudo apt update` — оновлює список доступних пакетів.<br>2. `sudo apt upgrade` — встановлює оновлення для всіх пакетів.<br>3. `sudo apt install nginx` — встановлює вебсервер nginx.<br>4. `sudo apt remove nginx` — видаляє пакет nginx.<br>5. `sudo apt autoremove` — видаляє непотрібні залежності. |
 
 ---
 ---
@@ -69,6 +71,10 @@
 | Перезапустити та перевірити SSH | `sudo systemctl restart ssh && sudo systemctl status ssh` | Оновлює сервіс і перевіряє стан. |
 | Вимкнути парольний вхід | `sudo sed -i 's/^#PasswordAuthentication.*/PasswordAuthentication no/' /etc/ssh/sshd_config` | Змінює параметри без відкриття файлу. |
 | Додати користувача | `sudo adduser dev && sudo usermod -aG sudo dev` | Створює користувача з правами `sudo`. |
+| Оновити систему та очистити кеш пакетів | `sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y && sudo apt clean` | Оновлює всі пакети, видаляє непотрібні залежності та очищує кеш, звільняючи місце. |
+| Оновити список доступних пакетів | `sudo apt update` | Оновлює індекс пакетів із репозиторіїв, щоб система знала про останні версії. |
+| Встановити всі оновлення системи | `sudo apt upgrade -y` | Оновлює всі пакети до актуальних версій, не змінюючи конфігурацій. |
+| Встановити текстовий редактор vim | `sudo apt install vim -y` | Завантажує і встановлює vim — потужний консольний редактор. |
 
 ---
 
