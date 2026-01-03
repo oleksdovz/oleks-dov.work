@@ -15,6 +15,7 @@
 - [How-to: To create a read replica in AWS RDS for PostgreSQL](how-to/how-rds-read-replica.md)
 - [How-to: Build Multi-Architecture Docker Images with Podman](how-to/how-to-build-mutliarch-docker-images.md)
 - [How-to: Mount AirPort share in Linux ](how-to/how-to-mount-airport-share-in-linux.md)
+- [How-to: Configure Bond0 ](how-to/how-to-create-bond.md)
 
 ---
 
