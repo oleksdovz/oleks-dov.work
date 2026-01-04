@@ -1,5 +1,21 @@
 # How-To: LXC з Unbound + dnsmasq (DHCP + authoritative DNS)
 
+
+## Зміст
+
+- [Архітектура](#архітектура)
+- [Мережеві інтерфейси контейнера](#мережеві-інтерфейси-контейнера)
+- [Unbound: конфігурація](#unbound-конфігурація)
+- [Unbound: root-hints (кореневі-dns-сервери)](#unbound-root-hints-кореневі-dns-сервери)
+- [Автоматичне оновлення root-hints (systemd)](#автоматичне-оновлення-root-hints-systemd)
+- [Unbound: stub-zones (internal DNS)](#unbound-stub-zones-internal-dns)
+- [Unbound: forward-zones](#unbound-forward-zones)
+- [dnsmasq: призначення](#dnsmasq-призначення)
+- [dnsmasq: конфігурація](#dnsmasq-конфігурація)
+- [Перевірки](#перевірки)
+- [Типові помилки](#типові-помилки)
+- [Підсумок](#підсумок)
+
 Цей документ описує **еталонну схему DNS + DHCP** у LXC-контейнері (Proxmox), де:
 - **Unbound** — єдиний recursive DNS для клієнтів
 - **dnsmasq** — DHCP + authoritative DNS для ізольованої мережі `net100.lan`
