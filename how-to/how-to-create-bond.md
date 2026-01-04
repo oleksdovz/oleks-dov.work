@@ -167,5 +167,5 @@ iface vmbr100 inet static
 |---------|------------|---------------|
 |bond-mode active-backup | failover | Один активний NIC, інші — standby |
 | bond-miimon 100 |ms |Перевірка лінку кожні 100 ms|
-|bond-downdelay / updelay | 200 ms |  Захист від flapping |
+| bond-downdelay / updelay | 200 ms |  Захист від flapping |
 | bond-slaves | NICs | Фізичні інтерфейси|
