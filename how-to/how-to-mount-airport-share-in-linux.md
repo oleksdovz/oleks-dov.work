@@ -1,3 +1,65 @@
+## Зміст
+
+- [Quick Start](#quick-start)
+- [Передумови та обмеження](#передумови-та-обмеження)
+- [Встановлення afpfs-ng](#встановлення-afpfs-ng)
+- [Systemd](#systemd)
+  - [systemd .mount unit](#systemd-mount-unit)
+  - [systemd .automount unit](#systemd-automount-unit)
+  - [Активація](#активація)
+  - [Перевірка](#перевірка)
+
+---
+
+## Quick Start
+
+Швидкий варіант для нетерплячих — **мінімум кроків, максимум результату**.
+
+```bash
+# 1. Встановити afpfs-ng
+wget https://raw.githubusercontent.com/maxx27/afpfs-ng-deb/main/afpfs-ng.deb
+sudo apt install ./afpfs-ng.deb
+
+# 2. Створити mount point
+sudo mkdir -p /mnt/airport
+
+# 3. Разове монтування (перевірка доступу)
+sudo mount_afp afp://USER:PASSWORD@IP/SHARE /mnt/airport
+
+# 4. Systemd automount
+sudo tee /etc/systemd/system/mnt-airport.mount >/dev/null <<'EOF'
+[Unit]
+Description=Mount Airport AFP Share
+After=network-online.target
+Wants=network-online.target
+
+[Mount]
+What=afp://USER:PASSWORD@IP/SHARE
+Where=/mnt/airport
+Type=fuse.afpfs
+Options=allow_other,_netdev
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+sudo tee /etc/systemd/system/mnt-airport.automount >/dev/null <<'EOF'
+[Unit]
+Description=Automount Airport AFP Share
+
+[Automount]
+Where=/mnt/airport
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+sudo systemctl daemon-reload
+sudo systemctl enable --now mnt-airport.automount
+```
+
+Після цього доступ до `/mnt/airport` автоматично ініціює монтування.
+
 # Передумови та обмеження
 
 - Підтримується
