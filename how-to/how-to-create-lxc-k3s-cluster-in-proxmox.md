@@ -155,25 +155,28 @@ AGENTS=(
 
 ```bash
 #!/usr/bin/env bash
-set -euo pipefail
+# set -euo pipefail
 
 # ===============================
 # Configuration
 # ===============================
-CLUSTER_NAME="lxc-k3s"
-TEMPLATE="debian-12-standard_12.7-1_amd64.tar.zst"
+CLUSTER_NAME="lxc-k3s-test"
+TEMPLATE="debian-13-standard_13.1-2_amd64.tar.zst"
 BRIDGE="vmbr0"
 GATEWAY="192.168.0.1"
 DNS="192.168.0.1"
 STORAGE="local-lvm"
+TMP_STORAGE="local"
+CT_PASSWD='qwerty1234123'
+MOUNT_VOLUME="/data/k3s-storage/${CLUSTER_NAME}"
 
-MASTER_ID=6000
-MASTER_IP="192.168.0.60"
+MASTER_ID=4000
+MASTER_IP="192.168.0.51"
 
 AGENTS=(
-  "6001:192.168.0.61"
-  "6002:192.168.0.62"
-  "6003:192.168.0.63"
+  "4001:192.168.0.52"
+  "4002:192.168.0.53"
+  "4003:192.168.0.54"
 )
 
 CORES=2
@@ -200,7 +203,7 @@ create_ct() {
 
   log "Creating CT $id ($ip)"
 
-  pct create "$id" "$TEMPLATE" \
+  pct create "$id" "${TMP_STORAGE}:vztmpl/$TEMPLATE" \
     --hostname "${CLUSTER_NAME}-${id}" \
     --cores "$CORES" \
     --memory "$MEMORY" \
@@ -208,13 +211,31 @@ create_ct() {
     --nameserver "$DNS" \
     --rootfs "${STORAGE}:${DISK}" \
     --unprivileged 0 \
-    --features nesting=1
+    --features "nesting=1,fuse=1"
 
-  echo "lxc.apparmor.profile: unconfined" >> /etc/pve/lxc/${id}.conf
+  echo "timezone: Europe/Kyiv" >> /etc/pve/lxc/${id}.conf
   echo "lxc.cgroup2.devices.allow: a" >> /etc/pve/lxc/${id}.conf
   echo "lxc.cap.drop:" >> /etc/pve/lxc/${id}.conf
+  echo "lxc.cgroup2.devices.allow: c 188:* rwm" >> /etc/pve/lxc/${id}.conf
+  echo "lxc.cgroup2.devices.allow: c 189:* rwm" >> /etc/pve/lxc/${id}.conf
+  echo "lxc.mount.entry: /dev/serial/by-id  dev/serial/by-id  none bind,optional,create=dir" >> /etc/pve/lxc/${id}.conf
+  echo "lxc.mount.entry: /dev/ttyUSB0       dev/ttyUSB0       none bind,optional,create=file" >> /etc/pve/lxc/${id}.conf
+  echo "lxc.mount.entry: /dev/ttyUSB1       dev/ttyUSB1       none bind,optional,create=file" >> /etc/pve/lxc/${id}.conf
+  echo "lxc.mount.entry: /dev/ttyACM0       dev/ttyACM0       none bind,optional,create=file" >> /etc/pve/lxc/${id}.conf
+  echo "lxc.mount.entry: /dev/ttyACM1       dev/ttyACM1       none bind,optional,create=file" >> /etc/pve/lxc/${id}.conf
+  echo "lxc.cgroup2.devices.allow: c 10:200 rwm" >> /etc/pve/lxc/${id}.conf
+  echo "lxc.mount.entry: /dev/net/tun dev/net/tun none bind,create=file" >> /etc/pve/lxc/${id}.conf
+  echo "lxc.mount.auto = cgroup:rw " >> /etc/pve/lxc/${id}.conf
+  echo "lxc.cap.drop = " >> /etc/pve/lxc/${id}.conf
+  echo "lxc.apparmor.profile = unconfined " >> /etc/pve/lxc/${id}.conf
+  echo "lxc.mount.entry = /dev/kmsg dev/kmsg none bind,optional,create=file" >> /etc/pve/lxc/${id}.conf
+
+  log "Mount volume CT $id -> ${MOUNT_VOLUME}"
+  mkdir -pv ${MOUNT_VOLUME}
+  pct set $id -mp0 ${MOUNT_VOLUME},mp=/var/lib/rancher/k3s/storage
 
   pct start "$id"
+  
 }
 
 # ===============================
@@ -223,21 +244,19 @@ create_ct() {
 prepare_node() {
   local id="$1"
 
-  log "Preparing CT $id for Kubernetes"
+  log "Set pasword for CT $id "
+  pct exec $id -- bash -c "echo 'root:${CT_PASSWD}' | chpasswd"
 
+  log "Preparing CT $id for Kubernetes"
   exec_in_ct "$id" "
     apt update &&
-    apt install -y curl openssh-server &&
-    swapoff -a &&
-    sed -i '/ swap / s/^/#/' /etc/fstab &&
-    ln -sf /dev/console /dev/kmsg &&
-    cat <<EOF >/etc/sysctl.d/k8s.conf
-net.bridge.bridge-nf-call-iptables=1
-net.bridge.bridge-nf-call-ip6tables=1
-net.ipv4.ip_forward=1
-EOF
-    sysctl --system
+    apt install -yq curl openssh-server &&
+    swapoff -a;
+    sed -i '/ swap / s/^/#/' /etc/fstab;
+    # ln -sf /dev/console /dev/kmsg;
   "
+# exec_in_ct "$id" "
+# "
 
   pct reboot "$id"
 }
@@ -250,7 +269,7 @@ install_master() {
 
   exec_in_ct "$MASTER_ID" "
     curl -sfL https://get.k3s.io | \
-      INSTALL_K3S_EXEC='--disable traefik --write-kubeconfig /root/config' sh -
+      INSTALL_K3S_EXEC=' --tls-san=${MASTER_IP} --disable traefik  --write-kubeconfig /root/config ' sh - 
   "
 
   exec_in_ct "$MASTER_ID" "cat /var/lib/rancher/k3s/server/node-token" > /tmp/k3s-token
@@ -279,9 +298,16 @@ install_agents() {
 # Delete cluster
 # ===============================
 delete_cluster() {
-  log "Deleting cluster"
-  pct stop ${MASTER_ID} $(printf "%s " "${AGENTS[@]%%:*}") || true
-  pct destroy ${MASTER_ID} $(printf "%s " "${AGENTS[@]%%:*}") || true
+  log "Deleting cluster '${CLUSTER_NAME}'"
+  for i in $(printf "%s " "${AGENTS[@]%%:*}");
+  do 
+    pct stop $i  || true
+    sleep 3
+    pct destroy $i  || true
+  done
+
+    pct stop $MASTER_ID
+    pct destroy $MASTER_ID
 }
 
 # ===============================
