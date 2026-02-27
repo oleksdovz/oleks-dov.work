@@ -2,7 +2,7 @@
 - [Home-lab](#home-lab)
 - [Proxmox CLI](#proxmox-cli)
 - [Kuebernetes tools:](#kuebernetes-tools)
-  
+
 ---
 
 ---
@@ -41,4 +41,5 @@
 
 # Kuebernetes tools:
 - [kubecui](https://github.com/pymag09/kubecui/)
+- [sk8r](tools/tool-sk8r.md)
 ---
