@@ -5,6 +5,7 @@
 - стрімінг логів у реальному часі,
 - інтерактивний shell у Pod та (опційно) метрики через Prometheus.
 
+![Sk8tes Dashboard](https://github.com/mvklingeren/sk8r/raw/main/docs/images/screenshot.png)
 ---
 Розгортання максимально прямолінійне: автор пропонує kubectl apply маніфестів (RBAC + Deployment + Service), а для метрик очікується доступний Prometheus (наприклад з kube-prometheus-stack).
 
