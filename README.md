@@ -42,4 +42,5 @@
 # Kuebernetes tools:
 - [kubecui](https://github.com/pymag09/kubecui/)
 - [sk8r](tools/tool-sk8r.md)
+- [Kthena](tools/tool-Kthena.md)
 ---
