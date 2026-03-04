@@ -1,6 +1,6 @@
 # Kthena
 
-![Diagram](https://github.com/volcano-sh/kthena/raw/main/docs/proposal/images/kthena-arch.svg)
+
 
 Kthena (volcano-sh/kthena) — це Kubernetes-native платформа для model serving / LLM inference у продакшені, яка робить розгортання моделей і їхній lifecycle декларативними (через CRD) та інтегрується з типовими K8s-процесами.
 
