@@ -1,9 +1,3 @@
-- [How-to](#how-to)
-- [Home-lab](#home-lab)
-- [Proxmox CLI](#proxmox-cli)
-- [Kuebernetes tools:](#kuebernetes-tools)
-
----
 
 ---
 # How-to
@@ -39,7 +33,7 @@
 ---
 
 
-# Kuebernetes tools:
+# Kubernetes tools:
 - [kubecui](https://github.com/pymag09/kubecui/)
 - [sk8r](tools/tool-sk8r.md)
 - [Kthena](tools/tool-Kthena.md)
