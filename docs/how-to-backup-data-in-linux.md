@@ -124,10 +124,10 @@ sudo dnf install -y coreutils
 |---|---|---|
 | `-r` | Рекурсивне копіювання директорій | Потрібен для копії папок з усім вмістом |
 | `-R` | Те саме, що recursive | Альтернативний варіант рекурсивного копіювання |
-| `-a` | Archive mode | Зберігає права, timestamps, symlink і структуру, найкращий варіант для backup copy |
+| `-a` | Archive mode | Зберігає права, часові мітки (timestamps), символічні посилання (symlink) і структуру — найкращий варіант для резервної копії |
 | `-i` | Interactive | Запитує перед перезаписом файлу |
 | `-v` | Verbose | Показує, що саме копіюється |
-| `-p` | Preserve mode, ownership, timestamps | Корисно, якщо треба зберегти атрибути без повного archive mode |
+| `-p` | Preserve mode, ownership, timestamps | Корисно, якщо треба зберегти атрибути (власник/права/часові мітки) без повного archive mode |
 
 ### Приклади використання `cp`
 
@@ -237,19 +237,19 @@ DST_DIR="/tmp"
 DST_FILE="${DST_DIR}/file-backup.txt"
 
 # Перевіряємо, що джерельний файл існує
- echo "[INFO] Checking that source file exists: ${SRC_FILE}"
+echo "[INFO] Checking that source file exists: ${SRC_FILE}"
 [ -f "${SRC_FILE}" ]
 
 # Створюємо директорію призначення
- echo "[INFO] Creating destination directory if it does not exist: ${DST_DIR}"
+echo "[INFO] Creating destination directory if it does not exist: ${DST_DIR}"
 mkdir -p "${DST_DIR}"
 
 # Копіюємо файл у нове місце
- echo "[INFO] Copying file ${SRC_FILE} to ${DST_FILE}"
+echo "[INFO] Copying file ${SRC_FILE} to ${DST_FILE}"
 cp -av "${SRC_FILE}" "${DST_FILE}"
 
 # Повідомляємо про успішне завершення
- echo "[OK] Copy completed successfully with cp"
+echo "[OK] Copy completed successfully with cp"
 ```
 
 ### Документація для `cp`
@@ -310,7 +310,7 @@ sudo dnf install -y rsync
 
 | Аргумент | Що означає | Навіщо використовувати |
 |---|---|---|
-| `-a` | Archive mode | Базовий режим для бекапу: рекурсія, права, timestamps, symlink |
+| `-a` | Archive mode | Базовий режим для бекапу: рекурсія, права, часові мітки (timestamps), символічні посилання (symlink) |
 | `-v` | Verbose | Показує список файлів і дій |
 | `-h` | Human-readable | Робить розміри читабельними |
 | `-z` | Compress | Стискає дані при передачі по мережі |
@@ -522,23 +522,23 @@ SRC_DIR="/home/user/data/"
 DST_DIR="/backup/data/"
 
 # Перевіряємо, що джерельна директорія існує
- echo "[INFO] Checking that source directory exists: ${SRC_DIR}"
+echo "[INFO] Checking that source directory exists: ${SRC_DIR}"
 [ -d "${SRC_DIR}" ]
 
 # Створюємо директорію призначення
- echo "[INFO] Creating destination directory if it does not exist: ${DST_DIR}"
+echo "[INFO] Creating destination directory if it does not exist: ${DST_DIR}"
 mkdir -p "${DST_DIR}"
 
 # Спочатку показуємо зміни без реального виконання
- echo "[INFO] Running dry-run first to preview changes"
+echo "[INFO] Running dry-run first to preview changes"
 rsync -av --delete --dry-run "${SRC_DIR}" "${DST_DIR}"
 
 # Потім запускаємо реальну синхронізацію
- echo "[INFO] Starting real synchronization"
+echo "[INFO] Starting real synchronization"
 rsync -avh --progress "${SRC_DIR}" "${DST_DIR}"
 
 # Повідомляємо про успішне завершення
- echo "[OK] Synchronization completed successfully with rsync"
+echo "[OK] Synchronization completed successfully with rsync"
 ```
 
 ### Документація для `rsync`
@@ -670,24 +670,24 @@ ARCHIVE_FILE="/tmp/project-backup.tar"
 RESTORE_DIR="/tmp/restore-test"
 
 # Перевіряємо, що директорія для архівації існує
- echo "[INFO] Checking that source directory exists: ${SRC_DIR}"
+echo "[INFO] Checking that source directory exists: ${SRC_DIR}"
 [ -d "${SRC_DIR}" ]
 
 # Створюємо tar-архів
- echo "[INFO] Creating tar archive: ${ARCHIVE_FILE}"
+echo "[INFO] Creating tar archive: ${ARCHIVE_FILE}"
 tar -cvf "${ARCHIVE_FILE}" "${SRC_DIR}"
 
 # Перевіряємо вміст архіву
- echo "[INFO] Listing archive contents for verification"
+echo "[INFO] Listing archive contents for verification"
 tar -tvf "${ARCHIVE_FILE}"
 
 # Виконуємо тестове відновлення
- echo "[INFO] Extracting archive into test directory: ${RESTORE_DIR}"
+echo "[INFO] Extracting archive into test directory: ${RESTORE_DIR}"
 mkdir -p "${RESTORE_DIR}"
 tar -xvf "${ARCHIVE_FILE}" -C "${RESTORE_DIR}"
 
 # Повідомляємо про успішне завершення
- echo "[OK] Archive creation and test restore completed successfully with tar"
+echo "[OK] Archive creation and test restore completed successfully with tar"
 ```
 
 ### Документація для `tar`
@@ -810,23 +810,23 @@ ARCHIVE_FILE="/tmp/project-backup.tar.gz"
 RESTORE_DIR="/tmp/restore-gzip"
 
 # Перевіряємо, що директорія для архівації існує
- echo "[INFO] Checking that source directory exists: ${SRC_DIR}"
+echo "[INFO] Checking that source directory exists: ${SRC_DIR}"
 [ -d "${SRC_DIR}" ]
 
 # Створюємо gzip-архів
- echo "[INFO] Creating gzip archive: ${ARCHIVE_FILE}"
+echo "[INFO] Creating gzip archive: ${ARCHIVE_FILE}"
 tar -czvf "${ARCHIVE_FILE}" "${SRC_DIR}"
 
 # Створюємо директорію для тестового відновлення
- echo "[INFO] Creating restore directory: ${RESTORE_DIR}"
+echo "[INFO] Creating restore directory: ${RESTORE_DIR}"
 mkdir -p "${RESTORE_DIR}"
 
 # Розпаковуємо архів для перевірки
- echo "[INFO] Extracting gzip archive into ${RESTORE_DIR}"
+echo "[INFO] Extracting gzip archive into ${RESTORE_DIR}"
 tar -xzvf "${ARCHIVE_FILE}" -C "${RESTORE_DIR}"
 
 # Повідомляємо про успішне завершення
- echo "[OK] Compressed archive workflow completed successfully"
+echo "[OK] Compressed archive workflow completed successfully"
 ```
 
 ### Документація для стиснутих архівів
@@ -936,15 +936,15 @@ REMOTE_HOST="10.10.10.20"
 REMOTE_DIR="/backup/project"
 
 # Перевіряємо, що локальна директорія існує
- echo "[INFO] Checking that local directory exists: ${SRC_DIR}"
+echo "[INFO] Checking that local directory exists: ${SRC_DIR}"
 [ -d "${SRC_DIR}" ]
 
 # Копіюємо директорію на віддалений сервер
- echo "[INFO] Copying directory to remote server ${REMOTE_USER}@${REMOTE_HOST}:${REMOTE_DIR}"
+echo "[INFO] Copying directory to remote server ${REMOTE_USER}@${REMOTE_HOST}:${REMOTE_DIR}"
 scp -r "${SRC_DIR}" "${REMOTE_USER}@${REMOTE_HOST}:${REMOTE_DIR}"
 
 # Повідомляємо про успішне завершення
- echo "[OK] Transfer completed successfully with scp"
+echo "[OK] Transfer completed successfully with scp"
 ```
 
 ### Документація для `scp`
@@ -1079,18 +1079,18 @@ INPUT_DISK="/dev/sdb"
 OUTPUT_IMAGE="/backup/usb.img"
 
 # Показуємо диски перед запуском небезпечної команди
- echo "[WARN] Review disks carefully with lsblk before running dd"
+echo "[WARN] Review disks carefully with lsblk before running dd"
 lsblk
 
 # Пояснюємо джерело і ціль копіювання
- echo "[INFO] Reading from ${INPUT_DISK} and writing to ${OUTPUT_IMAGE}"
+echo "[INFO] Reading from ${INPUT_DISK} and writing to ${OUTPUT_IMAGE}"
 
 # Створюємо образ диска
- echo "[INFO] Creating disk image"
+echo "[INFO] Creating disk image"
 sudo dd if="${INPUT_DISK}" of="${OUTPUT_IMAGE}" bs=4M status=progress conv=fsync
 
 # Повідомляємо про успішне завершення
- echo "[OK] Disk image creation completed successfully with dd"
+echo "[OK] Disk image creation completed successfully with dd"
 ```
 
 ### Документація для `dd`
@@ -1198,19 +1198,19 @@ SRC_DIR="/etc"
 DST_DIR="/backup/etc-configs"
 
 # Перевіряємо, що директорія для пошуку існує
- echo "[INFO] Checking that source directory exists: ${SRC_DIR}"
+echo "[INFO] Checking that source directory exists: ${SRC_DIR}"
 [ -d "${SRC_DIR}" ]
 
 # Створюємо директорію призначення
- echo "[INFO] Creating destination directory: ${DST_DIR}"
+echo "[INFO] Creating destination directory: ${DST_DIR}"
 mkdir -p "${DST_DIR}"
 
 # Шукаємо конфігураційні файли і копіюємо їх зі структурою каталогів
- echo "[INFO] Finding all *.conf files and copying them with directory structure preserved"
+echo "[INFO] Finding all *.conf files and copying them with directory structure preserved"
 find "${SRC_DIR}" -name "*.conf" -exec cp --parents {} "${DST_DIR}" \;
 
 # Повідомляємо про успішне завершення
- echo "[OK] Search and copy completed successfully with find"
+echo "[OK] Search and copy completed successfully with find"
 ```
 
 ### Документація для `find`
@@ -1316,15 +1316,15 @@ DB_NAME="mydb"
 BACKUP_FILE="/backup/${DB_NAME}-$(date +%F).sql"
 
 # Запускаємо логічний дамп бази даних
- echo "[INFO] Creating logical database dump for ${DB_NAME}"
- echo "[INFO] mysqldump will prompt for the database password"
+echo "[INFO] Creating logical database dump for ${DB_NAME}"
+echo "[INFO] mysqldump will prompt for the database password"
 mysqldump -u root -p "${DB_NAME}" > "${BACKUP_FILE}"
 
 # Повідомляємо, де збережено дамп
- echo "[INFO] Dump saved to ${BACKUP_FILE}"
+echo "[INFO] Dump saved to ${BACKUP_FILE}"
 
 # Повідомляємо про успішне завершення
- echo "[OK] Database backup completed successfully"
+echo "[OK] Database backup completed successfully"
 ```
 
 ### Документація для дампів БД
@@ -1431,23 +1431,23 @@ BACKUP_DIR="/backup/daily/$(date +%F)"
 SRC_DIR="/home/user/data/"
 
 # Створюємо каталог для щоденного бекапу
- echo "[INFO] Creating directory for daily backup: ${BACKUP_DIR}"
+echo "[INFO] Creating directory for daily backup: ${BACKUP_DIR}"
 mkdir -p "${BACKUP_DIR}"
 
 # Синхронізуємо дані через rsync
- echo "[INFO] Synchronizing data with rsync"
+echo "[INFO] Synchronizing data with rsync"
 rsync -aAX --delete "${SRC_DIR}" "${BACKUP_DIR}/data/"
 
 # Архівуємо системні конфіги
- echo "[INFO] Archiving system configuration from /etc"
+echo "[INFO] Archiving system configuration from /etc"
 tar -czf "${BACKUP_DIR}/etc.tar.gz" /etc
 
 # Показуємо приклад рядка для cron
- echo "[INFO] Example cron entry for running this script at 02:00"
+echo "[INFO] Example cron entry for running this script at 02:00"
 echo '0 2 * * * /usr/local/bin/backup.sh >> /var/log/backup.log 2>&1'
 
 # Повідомляємо про успішне завершення
- echo "[OK] Daily backup script finished successfully"
+echo "[OK] Daily backup script finished successfully"
 ```
 
 ### Документація для `cron`
