@@ -90,7 +90,7 @@
   - [YouTube-відео](#youtube-відео-8)
 - [10. Як правильно обирати інструмент](#10-як-правильно-обирати-інструмент)
 - [11. Найчастіші помилки](#11-найчастіші-помилки)
-- [12. Мінімальна практична шпаргалка](#12-мінімальна-практична-шпаргалка)ґ`
+- [12. Мінімальна практична шпаргалка](#12-мінімальна-практична-шпаргалка)
 - [Висновок](#висновок)
 
 
@@ -120,8 +120,6 @@ sudo dnf install -y coreutils
 
 ### Таблиця аргументів `cp`
 
-### Приклади використання `cp`
-
 | Аргумент | Що означає | Навіщо використовувати |
 |---|---|---|
 | `-r` | Рекурсивне копіювання директорій | Потрібен для копії папок з усім вмістом |
@@ -130,6 +128,8 @@ sudo dnf install -y coreutils
 | `-i` | Interactive | Запитує перед перезаписом файлу |
 | `-v` | Verbose | Показує, що саме копіюється |
 | `-p` | Preserve mode, ownership, timestamps | Корисно, якщо треба зберегти атрибути без повного archive mode |
+
+### Приклади використання `cp`
 
 ### Приклад 1. Скопіювати один файл
 ```bash
@@ -310,8 +310,6 @@ sudo dnf install -y rsync
 
 ### Таблиця аргументів `rsync`
 
-### Приклади використання `rsync`
-
 | Аргумент | Що означає | Навіщо використовувати |
 |---|---|---|
 | `-a` | Archive mode | Базовий режим для бекапу: рекурсія, права, timestamps, symlink |
@@ -326,6 +324,8 @@ sudo dnf install -y rsync
 | `--progress` | Показувати прогрес | Зручно для великих файлів |
 | `--exclude=PATTERN` | Виключити файли або директорії | Не копіювати кеш, логи, build artifacts |
 | `-e "ssh ..."` | Вказати transport shell | Потрібно для SSH з кастомним портом або опціями |
+
+### Приклади використання `rsync`
 
 ### Приклад 1. Базова синхронізація
 ```bash
@@ -599,8 +599,6 @@ sudo dnf install -y tar
 
 ### Таблиця аргументів `tar`
 
-### Приклади використання `tar`
-
 | Аргумент | Що означає | Навіщо використовувати |
 |---|---|---|
 | `-c` | Create | Створити новий архів |
@@ -612,6 +610,8 @@ sudo dnf install -y tar
 | `-j` | Bzip2 compression | Створити або розпакувати `.tar.bz2` |
 | `-J` | XZ compression | Створити або розпакувати `.tar.xz` |
 | `-C DIR` | Change directory | Розпакувати в конкретний каталог |
+
+### Приклади використання `tar`
 
 ### Приклад 1. Створити звичайний tar-архів
 ```bash
@@ -742,9 +742,6 @@ tar -xvf "${ARCHIVE_FILE}" -C "${RESTORE_DIR}"
 
 ### Приклад встановлення
 
-
-### Приклади використання стиснутих архівів
-
 **Debian / Ubuntu**
 ```bash
 sudo apt update
@@ -755,6 +752,8 @@ sudo apt install -y tar gzip bzip2 xz-utils
 ```bash
 sudo dnf install -y tar gzip bzip2 xz
 ```
+
+### Приклади використання стиснутих архівів
 
 ### Варіант 1. `tar.gz`
 ```bash
@@ -888,8 +887,6 @@ sudo dnf install -y openssh-clients
 
 ### Таблиця аргументів `scp`
 
-### Приклади використання `scp`
-
 | Аргумент | Що означає | Навіщо використовувати |
 |---|---|---|
 | `-r` | Recursive | Копіювати директорії рекурсивно |
@@ -897,6 +894,8 @@ sudo dnf install -y openssh-clients
 | `-i FILE` | Identity file | Використати конкретний SSH ключ |
 | `-p` | Preserve times and modes | Зберегти часові мітки і права |
 | `-v` | Verbose | Дебаг і детальний вивід |
+
+### Приклади використання `scp`
 
 ### Приклад 1. Передати файл на сервер
 ```bash
@@ -1004,8 +1003,6 @@ sudo dnf install -y coreutils
 
 ### Таблиця аргументів `dd`
 
-### Приклади використання `dd`
-
 | Аргумент | Що означає | Навіщо використовувати |
 |---|---|---|
 | `if=...` | Input file | Джерело: файл, диск або розділ |
@@ -1014,6 +1011,8 @@ sudo dnf install -y coreutils
 | `count=N` | Кількість блоків | Копіювати лише частину даних |
 | `status=progress` | Показ прогресу | Зручно для великих копій |
 | `conv=fsync` | Flush after write | Корисно, щоб бути впевненим, що дані реально скинуті на диск |
+
+### Приклади використання `dd`
 
 ### Приклад 1. Зробити образ диска
 ```bash
@@ -1150,8 +1149,6 @@ sudo dnf install -y findutils
 
 ### Таблиця аргументів `find`
 
-### Приклади використання `find`
-
 | Аргумент | Що означає | Навіщо використовувати |
 |---|---|---|
 | `-name PATTERN` | Пошук за ім’ям | Знайти файли за шаблоном |
@@ -1160,6 +1157,8 @@ sudo dnf install -y findutils
 | `-mtime N` | Зміна за N днів | Шукати старі або нові файли |
 | `-size` | Пошук за розміром | Наприклад, великі логи |
 | `-exec CMD {} \;` | Виконати команду над кожним файлом | Автоматизувати копіювання, видалення чи інші дії |
+
+### Приклади використання `find`
 
 ### Приклад 1. Знайти всі `.conf`
 ```bash
@@ -1239,7 +1238,6 @@ find "${SRC_DIR}" -name "*.conf" -exec cp --parents {} "${DST_DIR}" \;
 
 - [Linux Crash Course - The find command](https://www.youtube.com/watch?v=skTiK_6DdqU)
 - [Linux/Mac Terminal Tutorial: How To Use The find Command](https://www.youtube.com/watch?v=KCVaNb_zOuw)
-```
 
 
 ## 8. Бекап баз даних: окремі утиліти, а не `cp`
@@ -1274,8 +1272,6 @@ sudo dnf install -y mysql postgresql
 
 ### Таблиця аргументів для дампів БД
 
-### Приклади використання дампів БД
-
 | Команда | Аргумент | Що означає | Навіщо використовувати |
 |---|---|---|---|
 | `mysqldump` | `-u USER` | Користувач БД | Запуск від конкретного облікового запису |
@@ -1283,6 +1279,8 @@ sudo dnf install -y mysql postgresql
 | `mysqldump` | `--single-transaction` | Консистентний дамп InnoDB без lock table | Добре для live backup MySQL |
 | `pg_dump` | `-Fc` | Custom format | Краще для відновлення через `pg_restore` |
 | `pg_dump` | `-f FILE` | Вихідний файл | Явно задати файл дампу |
+
+### Приклади використання дампів БД
 
 ### MySQL / MariaDB
 ```bash
@@ -1354,7 +1352,7 @@ mysqldump -u root -p "${DB_NAME}" > "${BACKUP_FILE}"
 
 - [Backup MySQL database with mysqldump FAST (from the ...)](https://www.youtube.com/watch?v=IzEet1qxrKo)
 - [PostgreSQL Logical Backup & Restore | Explained by Ankush ...](https://www.youtube.com/watch?v=uboZI90SSf4)
-```
+
 
 ## 9. Автоматичний backup через `cron`
 
@@ -1478,7 +1476,6 @@ echo '0 2 * * * /usr/local/bin/backup.sh >> /var/log/backup.log 2>&1'
 
 - [How To Setup A Cron Job Using Crontab](https://www.youtube.com/watch?v=Fsj9f-E5kz4)
 - [Cron Jobs For Beginners | Linux Task Scheduling](https://www.youtube.com/watch?v=v952m13p-b4)
-```
 
 ## 10. Як правильно обирати інструмент
 
@@ -1628,34 +1625,3 @@ sudo dd if=/dev/sdb of=/backup/disk.img bs=4M status=progress
 - конфіги складаються в `tar.gz`;
 - backup запускається через `cron`;
 - відновлення періодично тестується.
-
-### Скрипт: приклад для `cron` backup
-
-```bash
-#!/usr/bin/env bash
-set -euo pipefail
-
-BACKUP_DIR="/backup/daily/$(date +%F)"
-SRC_DIR="/home/user/data/"
-
-# Створюємо каталог для щоденного бекапу
- echo "[INFO] Creating directory for daily backup: ${BACKUP_DIR}"
-mkdir -p "${BACKUP_DIR}"
-
-# Синхронізуємо дані через rsync
- echo "[INFO] Synchronizing data with rsync"
-rsync -aAX --delete "${SRC_DIR}" "${BACKUP_DIR}/data/"
-
-# Архівуємо системні конфіги
- echo "[INFO] Archiving system configuration from /etc"
-tar -czf "${BACKUP_DIR}/etc.tar.gz" /etc
-
-# Показуємо приклад рядка для cron
- echo "[INFO] Example cron entry for running this script at 02:00"
-echo '0 2 * * * /usr/local/bin/backup.sh >> /var/log/backup.log 2>&1'
-
-# Повідомляємо про успішне завершення
- echo "[OK] Daily backup script finished successfully"
-```
-
----
