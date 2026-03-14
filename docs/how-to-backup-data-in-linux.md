@@ -9,85 +9,85 @@
 ## Зміст
 
 - [1. `cp` — найпростіше копіювання файлів і папок](#1-cp--найпростіше-копіювання-файлів-і-папок)
-  - [Чи є команда вбудованою](#чи-є-команда-вбудованою)
-  - [Приклад встановлення](#приклад-встановлення)
+  - [Чи є команда `cp` вбудованою](#чи-є-команда-cp-вбудованою)
+  - [Як встановити `cp`](#як-встановити-cp)
   - [Таблиця аргументів `cp`](#таблиця-аргументів-cp)
   - [Приклади використання `cp`](#приклади-використання-cp)
   - [Скрипт: приклад для `cp`](#скрипт-приклад-для-cp)
-  - [Офіційна документація / manual page](#офіційна-документація--manual-page)
-  - [Блоги / статті](#блоги--статті)
-  - [YouTube-відео](#youtube-відео)
+  - [Документація для `cp`](#документація-для-cp)
+  - [Блоги / статті про `cp`](#блоги--статті-про-cp)
+  - [YouTube-відео про `cp`](#youtube-відео-про-cp)
 - [2. `rsync` — основний інструмент для бекапу і синхронізації](#2-rsync--основний-інструмент-для-бекапу-і-синхронізації)
-  - [Чи є команда вбудованою](#чи-є-команда-вбудованою-1)
-  - [Приклад встановлення](#приклад-встановлення-1)
+  - [Чи є команда `rsync` вбудованою](#чи-є-команда-rsync-вбудованою)
+  - [Як встановити `rsync`](#як-встановити-rsync)
   - [Таблиця аргументів `rsync`](#таблиця-аргументів-rsync)
   - [Приклади використання `rsync`](#приклади-використання-rsync)
   - [Скрипт: приклад для `rsync`](#скрипт-приклад-для-rsync)
-  - [Офіційна документація / manual page](#офіційна-документація--manual-page-1)
-  - [Блоги / статті](#блоги--статті-1)
-  - [YouTube-відео](#youtube-відео-1)
+  - [Документація для `rsync`](#документація-для-rsync)
+  - [Блоги / статті про `rsync`](#блоги--статті-про-rsync)
+  - [YouTube-відео про `rsync`](#youtube-відео-про-rsync)
 - [3. `tar` — архівування в один файл](#3-tar--архівування-в-один-файл)
-  - [Чи є команда вбудованою](#чи-є-команда-вбудованою-2)
-  - [Приклад встановлення](#приклад-встановлення-2)
+  - [Чи є команда `tar` вбудованою](#чи-є-команда-tar-вбудованою)
+  - [Як встановити `tar`](#як-встановити-tar)
   - [Таблиця аргументів `tar`](#таблиця-аргументів-tar)
   - [Приклади використання `tar`](#приклади-використання-tar)
   - [Скрипт: приклад для `tar`](#скрипт-приклад-для-tar)
-  - [Офіційна документація / manual page](#офіційна-документація--manual-page-2)
-  - [Блоги / статті](#блоги--статті-2)
-  - [YouTube-відео](#youtube-відео-2)
+  - [Документація для `tar`](#документація-для-tar)
+  - [Блоги / статті про `tar`](#блоги--статті-про-tar)
+  - [YouTube-відео про `tar`](#youtube-відео-про-tar)
 - [4. Стиснуті архіви: `tar.gz`, `tar.bz2`, `tar.xz`](#4-стиснуті-архіви-targz-tarbz2-tarxz)
-  - [Чи є команда вбудованою](#чи-є-команда-вбудованою-3)
-  - [Приклад встановлення](#приклад-встановлення-3)
+  - [Чи є команди для стиснутих архівів вбудованими](#чи-є-команди-для-стиснутих-архівів-вбудованими)
+  - [Як встановити інструменти для стиснутих архівів](#як-встановити-інструменти-для-стиснутих-архівів)
   - [Приклади використання стиснутих архівів](#приклади-використання-стиснутих-архівів)
   - [Скрипт: приклад для стиснутих архівів](#скрипт-приклад-для-стиснутих-архівів)
-  - [Офіційна документація / manual page](#офіційна-документація--manual-page-3)
-  - [Блоги / статті](#блоги--статті-3)
-  - [YouTube-відео](#youtube-відео-3)
+  - [Документація для стиснутих архівів](#документація-для-стиснутих-архівів)
+  - [Блоги / статті про стиснуті архіви](#блоги--статті-про-стиснуті-архіви)
+  - [YouTube-відео про стиснуті архіви](#youtube-відео-про-стиснуті-архіви)
 - [5. `scp` — копіювання на інший сервер](#5-scp--копіювання-на-інший-сервер)
-  - [Чи є команда вбудованою](#чи-є-команда-вбудованою-4)
-  - [Приклад встановлення](#приклад-встановлення-4)
+  - [Чи є команда `scp` вбудованою](#чи-є-команда-scp-вбудованою)
+  - [Як встановити `scp`](#як-встановити-scp)
   - [Таблиця аргументів `scp`](#таблиця-аргументів-scp)
   - [Приклади використання `scp`](#приклади-використання-scp)
   - [Скрипт: приклад для `scp`](#скрипт-приклад-для-scp)
-  - [Офіційна документація / manual page](#офіційна-документація--manual-page-4)
-  - [Блоги / статті](#блоги--статті-4)
-  - [YouTube-відео](#youtube-відео-4)
+  - [Документація для `scp`](#документація-для-scp)
+  - [Блоги / статті про `scp`](#блоги--статті-про-scp)
+  - [YouTube-відео про `scp`](#youtube-відео-про-scp)
 - [6. `dd` — поблочне копіювання дисків і розділів](#6-dd--поблочне-копіювання-дисків-і-розділів)
-  - [Чи є команда вбудованою](#чи-є-команда-вбудованою-5)
-  - [Приклад встановлення](#приклад-встановлення-5)
+  - [Чи є команда `dd` вбудованою](#чи-є-команда-dd-вбудованою)
+  - [Як встановити `dd`](#як-встановити-dd)
   - [Таблиця аргументів `dd`](#таблиця-аргументів-dd)
   - [Приклади використання `dd`](#приклади-використання-dd)
   - [Скрипт: приклад для `dd`](#скрипт-приклад-для-dd)
-  - [Офіційна документація / manual page](#офіційна-документація--manual-page-5)
-  - [Блоги / статті](#блоги--статті-5)
-  - [YouTube-відео](#youtube-відео-5)
+  - [Документація для `dd`](#документація-для-dd)
+  - [Блоги / статті про `dd`](#блоги--статті-про-dd)
+  - [YouTube-відео про `dd`](#youtube-відео-про-dd)
 - [7. `find` — вибіркове копіювання і пошук потрібних файлів](#7-find--вибіркове-копіювання-і-пошук-потрібних-файлів)
-  - [Чи є команда вбудованою](#чи-є-команда-вбудованою-6)
-  - [Приклад встановлення](#приклад-встановлення-6)
+  - [Чи є команда `find` вбудованою](#чи-є-команда-find-вбудованою)
+  - [Як встановити `find`](#як-встановити-find)
   - [Таблиця аргументів `find`](#таблиця-аргументів-find)
   - [Приклади використання `find`](#приклади-використання-find)
   - [Скрипт: приклад для `find`](#скрипт-приклад-для-find)
-  - [Офіційна документація / manual page](#офіційна-документація--manual-page-6)
-  - [Блоги / статті](#блоги--статті-6)
-  - [YouTube-відео](#youtube-відео-6)
+  - [Документація для `find`](#документація-для-find)
+  - [Блоги / статті про `find`](#блоги--статті-про-find)
+  - [YouTube-відео про `find`](#youtube-відео-про-find)
 - [8. Бекап баз даних: окремі утиліти, а не `cp`](#8-бекап-баз-даних-окремі-утиліти-а-не-cp)
-  - [Чи є команда вбудованою](#чи-є-команда-вбудованою-7)
-  - [Приклад встановлення](#приклад-встановлення-7)
+  - [Чи є команди для дампів БД вбудованими](#чи-є-команди-для-дампів-бд-вбудованими)
+  - [Як встановити утиліти для дампів БД](#як-встановити-утиліти-для-дампів-бд)
   - [Таблиця аргументів для дампів БД](#таблиця-аргументів-для-дампів-бд)
   - [Приклади використання дампів БД](#приклади-використання-дампів-бд)
   - [Скрипт: приклад для дампу БД](#скрипт-приклад-для-дампу-бд)
-  - [Офіційна документація / manual page](#офіційна-документація--manual-page-7)
-  - [Блоги / статті](#блоги--статті-7)
-  - [YouTube-відео](#youtube-відео-7)
+  - [Документація для дампів БД](#документація-для-дампів-бд)
+  - [Блоги / статті про дампи БД](#блоги--статті-про-дампи-бд)
+  - [YouTube-відео про дампи БД](#youtube-відео-про-дампи-бд)
 - [9. Автоматичний backup через `cron`](#9-автоматичний-backup-через-cron)
-  - [Чи є команда вбудованою](#чи-є-команда-вбудованою-8)
-  - [Приклад встановлення](#приклад-встановлення-8)
+  - [Чи є команда `cron` вбудованою](#чи-є-команда-cron-вбудованою)
+  - [Як встановити `cron`](#як-встановити-cron)
   - [Приклад backup-скрипта](#приклад-backup-скрипта)
   - [Додавання у cron](#додавання-у-cron)
   - [Скрипт: приклад для `cron` backup](#скрипт-приклад-для-cron-backup)
-  - [Офіційна документація / manual page](#офіційна-документація--manual-page-8)
-  - [Блоги / статті](#блоги--статті-8)
-  - [YouTube-відео](#youtube-відео-8)
+  - [Документація для `cron`](#документація-для-cron)
+  - [Блоги / статті про `cron`](#блоги--статті-про-cron)
+  - [YouTube-відео про `cron`](#youtube-відео-про-cron)
 - [10. Як правильно обирати інструмент](#10-як-правильно-обирати-інструмент)
 - [11. Найчастіші помилки](#11-найчастіші-помилки)
 - [12. Мінімальна практична шпаргалка](#12-мінімальна-практична-шпаргалка)
@@ -97,14 +97,14 @@
 ## 1. `cp` — найпростіше копіювання файлів і папок
 
 
-### Чи є команда вбудованою
+### Чи є команда `cp` вбудованою
 
 `cp` **не є builtin-командою shell**. Зазвичай це окрема утиліта з пакета `coreutils`, яка майже завжди вже встановлена в системі.
 
 - **Debian / Ubuntu:** пакет `coreutils`
 - **RHEL / CentOS / Rocky / AlmaLinux:** пакет `coreutils`
 
-### Приклад встановлення
+### Як встановити `cp`
 
 **Debian / Ubuntu**
 ```bash
@@ -252,40 +252,38 @@ cp -av "${SRC_FILE}" "${DST_FILE}"
  echo "[OK] Copy completed successfully with cp"
 ```
 
-### Офіційна документація / manual page
+### Документація для `cp`
 
 Офіційної україномовної сторінки для `cp`, як правило, немає, тому нижче — офіційна англомовна документація:
 
 - [GNU Coreutils manual: `cp`](https://www.gnu.org/software/coreutils/manual/html_node/cp-invocation.html)
 - [man7.org: `cp(1)`](https://man7.org/linux/man-pages/man1/cp.1.html)
 
-### Блоги / статті
+### Блоги / статті про `cp`
 
 Україномовних якісних статей саме по `cp` майже немає, тому додаю перевірені англомовні матеріали:
 
 - [Linux Handbook: cp command examples](https://linuxhandbook.com/cp-command/)
 - [PhoenixNAP: How to copy files and directories in Linux](https://phoenixnap.com/kb/how-to-copy-files-directories-linux)
 
-### YouTube-відео
+### YouTube-відео про `cp`
 
 Відео українською не знайшов, тому додаю якісні англомовні варіанти:
 
 - [Linux Command Line Tutorial For Beginners 8 - cp command](https://www.youtube.com/watch?v=Bnx_GAHM0wo)
 - [The Linux Command Tutorial: The cp Command](https://www.youtube.com/watch?v=AIFQVctYkr0)
-```
-
 
 ## 2. `rsync` — основний інструмент для бекапу і синхронізації
 
 
-### Чи є команда вбудованою
+### Чи є команда `rsync` вбудованою
 
 `rsync` **не є builtin-командою shell**. Це окрема утиліта, яку часто треба встановлювати вручну, особливо на мінімальних образах серверів або контейнерів.
 
 - **Debian / Ubuntu:** пакет `rsync`
 - **RHEL / CentOS / Rocky / AlmaLinux:** пакет `rsync`
 
-### Приклад встановлення
+### Як встановити `rsync`
 
 **Debian / Ubuntu**
 ```bash
@@ -543,14 +541,14 @@ rsync -avh --progress "${SRC_DIR}" "${DST_DIR}"
  echo "[OK] Synchronization completed successfully with rsync"
 ```
 
-### Офіційна документація / manual page
+### Документація для `rsync`
 
 Офіційної україномовної сторінки для `rsync`, як правило, немає, тому нижче — офіційна англомовна документація:
 
 - [Official rsync site](https://www.samba.org/rsync/)
 - [man7.org: `rsync(1)`](https://man7.org/linux/man-pages/man1/rsync.1.html)
 
-### Блоги / статті
+### Блоги / статті про `rsync`
 
 Україномовних якісних статей саме по `rsync` майже немає, тому додаю перевірені англомовні матеріали:
 
@@ -558,14 +556,12 @@ rsync -avh --progress "${SRC_DIR}" "${DST_DIR}"
 - [PhoenixNAP: How to use rsync to back up data](https://phoenixnap.com/kb/rsync-back-up-data)
 - [PhoenixNAP: How to transfer files with rsync over SSH](https://phoenixnap.com/kb/how-to-rsync-over-ssh)
 
-### YouTube-відео
+### YouTube-відео про `rsync`
 
 Відео українською не знайшов, тому додаю якісні англомовні варіанти:
 
 - [How to Use the rsync Command | Linux Essentials Tutorial](https://www.youtube.com/watch?v=OXcDbC9x9WE)
 - [How to Use rsync to Reliably Copy Files Fast (many examples)](https://www.youtube.com/watch?v=Pygr_TpZRpM)
-```
-
 
 ## 3. `tar` — архівування в один файл
 
@@ -576,14 +572,14 @@ rsync -avh --progress "${SRC_DIR}" "${DST_DIR}"
 - point-in-time backup;
 - відправки на інший сервер чи в object storage.
 
-### Чи є команда вбудованою
+### Чи є команда `tar` вбудованою
 
 `tar` **не є builtin-командою shell**. Це окрема утиліта, яка зазвичай уже встановлена в системі, але на мінімальних image може бути відсутня.
 
 - **Debian / Ubuntu:** пакет `tar`
 - **RHEL / CentOS / Rocky / AlmaLinux:** пакет `tar`
 
-### Приклад встановлення
+### Як встановити `tar`
 
 **Debian / Ubuntu**
 ```bash
@@ -694,33 +690,32 @@ tar -xvf "${ARCHIVE_FILE}" -C "${RESTORE_DIR}"
  echo "[OK] Archive creation and test restore completed successfully with tar"
 ```
 
-### Офіційна документація / manual page
+### Документація для `tar`
 
 Офіційної україномовної сторінки для `tar`, як правило, немає, тому нижче — офіційна англомовна документація:
 
 - [GNU tar manual](https://www.gnu.org/software/tar/manual/)
 - [man7.org: `tar(1)`](https://man7.org/linux/man-pages/man1/tar.1.html)
 
-### Блоги / статті
+### Блоги / статті про `tar`
 
 Україномовних якісних статей саме по `tar` майже немає, тому додаю перевірені англомовні матеріали:
 
 - [Red Hat Blog: Taming the tar command](https://www.redhat.com/en/blog/taming-tar-command)
 - [PhoenixNAP: Tar command in Linux with examples](https://phoenixnap.com/kb/tar-command-in-linux)
 
-### YouTube-відео
+### YouTube-відео про `tar`
 
 Відео українською не знайшов, тому додаю якісні англомовні варіанти:
 
 - [How to Use Tar on Linux | Command Line Tips from Linode's ...](https://www.youtube.com/watch?v=bnQLpaBkBK8)
 - [How to use the tar command: 2-Minute Linux Tips](https://www.youtube.com/watch?v=PbywP4G_HJg)
-```
 
 
 
 ## 4. Стиснуті архіви: `tar.gz`, `tar.bz2`, `tar.xz`
 
-### Чи є команда вбудованою
+### Чи є команди для стиснутих архівів вбудованими
 
 Для `tar.gz`, `tar.bz2` і `tar.xz` базова команда — це все той самий `tar`, але для деяких форматів потрібні додаткові утиліти стиснення.
 
@@ -740,7 +735,7 @@ tar -xvf "${ARCHIVE_FILE}" -C "${RESTORE_DIR}"
 - пакет `bzip2`
 - пакет `xz`
 
-### Приклад встановлення
+### Як встановити інструменти для стиснутих архівів
 
 **Debian / Ubuntu**
 ```bash
@@ -834,7 +829,7 @@ tar -xzvf "${ARCHIVE_FILE}" -C "${RESTORE_DIR}"
  echo "[OK] Compressed archive workflow completed successfully"
 ```
 
-### Офіційна документація / manual page
+### Документація для стиснутих архівів
 
 Для стиснутих архівів використовуються `tar` і утиліти стиснення. Офіційної україномовної сторінки, як правило, немає, тому нижче — англомовна документація:
 
@@ -843,20 +838,20 @@ tar -xzvf "${ARCHIVE_FILE}" -C "${RESTORE_DIR}"
 - [bzip2 manual page](https://man7.org/linux/man-pages/man1/bzip2.1.html)
 - [xz manual page](https://man7.org/linux/man-pages/man1/xz.1.html)
 
-### Блоги / статті
+### Блоги / статті про стиснуті архіви
 
 Україномовних якісних статей саме по `tar.gz`, `tar.bz2` і `tar.xz` майже немає, тому додаю перевірені англомовні матеріали:
 
 - [Red Hat Blog: Taming the tar command](https://www.redhat.com/en/blog/taming-tar-command)
 - [PhoenixNAP: Tar command in Linux with examples](https://phoenixnap.com/kb/tar-command-in-linux)
 
-### YouTube-відео
+### YouTube-відео про стиснуті архіви
 
 Відео українською не знайшов, тому додаю якісні англомовні варіанти:
 
 - [Linux tar Command Tutorial with Examples: .tar, .tar.gz, .tgz](https://www.youtube.com/watch?v=yws7HOndElA)
 - [Linux Tutorial: 40 Overview of the tar and gzip utilities](https://www.youtube.com/watch?v=CC0b2I7jJFE)
-```
+
 
 
 ## 5. `scp` — копіювання на інший сервер
@@ -864,14 +859,14 @@ tar -xzvf "${ARCHIVE_FILE}" -C "${RESTORE_DIR}"
 
 `scp` — це простий мережевий аналог `cp` через SSH.
 
-### Чи є команда вбудованою
+### Чи є команда `scp` вбудованою
 
 `scp` **не є builtin-командою shell**. Зазвичай вона постачається разом з OpenSSH client.
 
 - **Debian / Ubuntu:** пакет `openssh-client`
 - **RHEL / CentOS / Rocky / AlmaLinux:** пакет `openssh-clients`
 
-### Приклад встановлення
+### Як встановити `scp`
 
 **Debian / Ubuntu**
 ```bash
@@ -952,27 +947,27 @@ scp -r "${SRC_DIR}" "${REMOTE_USER}@${REMOTE_HOST}:${REMOTE_DIR}"
  echo "[OK] Transfer completed successfully with scp"
 ```
 
-### Офіційна документація / manual page
+### Документація для `scp`
 
 Офіційної україномовної сторінки для `scp`, як правило, немає, тому нижче — офіційна англомовна документація:
 
 - [OpenSSH manual pages](https://www.openssh.com/manual.html)
 - [Arch manual page: `scp(1)`](https://man.archlinux.org/man/scp.1.en)
 
-### Блоги / статті
+### Блоги / статті про `scp`
 
 Україномовних якісних статей саме по `scp` майже немає, тому додаю перевірені англомовні матеріали:
 
 - [PhoenixNAP: Linux scp command](https://phoenixnap.com/kb/linux-scp-command)
 - [FreeCodeCamp: Linux scp command explained](https://www.freecodecamp.org/news/scp-linux-command-example-how-to-ssh-file-transfer-from-remote-to-local/)
 
-### YouTube-відео
+### YouTube-відео про `scp`
 
 Відео українською не знайшов, тому додаю якісні англомовні варіанти:
 
 - [Copy Files with SCP- Easy Command Line Tutorial](https://www.youtube.com/watch?v=smicU_SVswM)
 - [Transferring files with the scp Command (Linux Crash Course ...)](https://www.youtube.com/watch?v=Aa7tKMmeFZI)
-```
+
 
 
 ## 6. `dd` — поблочне копіювання дисків і розділів
@@ -980,14 +975,14 @@ scp -r "${SRC_DIR}" "${REMOTE_USER}@${REMOTE_HOST}:${REMOTE_DIR}"
 
 `dd` — це вже не про “файли”, а про сире копіювання блоків. Дуже потужний і дуже небезпечний інструмент.
 
-### Чи є команда вбудованою
+### Чи є команда `dd` вбудованою
 
 `dd` **не є builtin-командою shell**. Зазвичай це утиліта з пакета `coreutils`, яка майже завжди вже встановлена.
 
 - **Debian / Ubuntu:** пакет `coreutils`
 - **RHEL / CentOS / Rocky / AlmaLinux:** пакет `coreutils`
 
-### Приклад встановлення
+### Як встановити `dd`
 
 **Debian / Ubuntu**
 ```bash
@@ -1098,27 +1093,27 @@ sudo dd if="${INPUT_DISK}" of="${OUTPUT_IMAGE}" bs=4M status=progress conv=fsync
  echo "[OK] Disk image creation completed successfully with dd"
 ```
 
-### Офіційна документація / manual page
+### Документація для `dd`
 
 Офіційної україномовної сторінки для `dd`, як правило, немає, тому нижче — офіційна англомовна документація:
 
 - [GNU Coreutils manual: `dd`](https://www.gnu.org/software/coreutils/manual/html_node/dd-invocation.html)
 - [man7.org: `dd(1)`](https://man7.org/linux/man-pages/man1/dd.1.html)
 
-### Блоги / статті
+### Блоги / статті про `dd`
 
 Україномовних якісних статей саме по `dd` майже немає, тому додаю перевірені англомовні матеріали:
 
 - [PhoenixNAP: Linux dd command explained](https://phoenixnap.com/kb/linux-dd-command)
 - [Red Hat: 20 essential Linux commands every user should know](https://www.redhat.com/en/blog/20-essential-linux-commands-every-user)
 
-### YouTube-відео
+### YouTube-відео про `dd`
 
 Відео українською не знайшов, тому додаю якісні англомовні варіанти:
 
 - [How To Use The DD Command in Linux](https://www.youtube.com/watch?v=hsDxcJhCRLI)
 - [How to Clone a Disk in Linux with DD: Step-by-Step Guide for ...](https://www.youtube.com/watch?v=c1JlsExFWu4)
-```
+
 
 
 ## 7. `find` — вибіркове копіювання і пошук потрібних файлів
@@ -1126,14 +1121,14 @@ sudo dd if="${INPUT_DISK}" of="${OUTPUT_IMAGE}" bs=4M status=progress conv=fsync
 
 Сам по собі `find` не бекапить, але він дуже корисний, коли треба знайти конкретні типи файлів і вже з ними щось зробити.
 
-### Чи є команда вбудованою
+### Чи є команда `find` вбудованою
 
 `find` **не є builtin-командою shell**. У Linux це зазвичай утиліта з пакета `findutils`.
 
 - **Debian / Ubuntu:** пакет `findutils`
 - **RHEL / CentOS / Rocky / AlmaLinux:** пакет `findutils`
 
-### Приклад встановлення
+### Як встановити `find`
 
 **Debian / Ubuntu**
 ```bash
@@ -1218,21 +1213,21 @@ find "${SRC_DIR}" -name "*.conf" -exec cp --parents {} "${DST_DIR}" \;
  echo "[OK] Search and copy completed successfully with find"
 ```
 
-### Офіційна документація / manual page
+### Документація для `find`
 
 Офіційної україномовної сторінки для `find`, як правило, немає, тому нижче — офіційна англомовна документація:
 
 - [GNU Findutils manual](https://www.gnu.org/software/findutils/manual/)
 - [man7.org: `find(1)`](https://man7.org/linux/man-pages/man1/find.1.html)
 
-### Блоги / статті
+### Блоги / статті про `find`
 
 Україномовних якісних статей саме по `find` майже немає, тому додаю перевірені англомовні матеріали:
 
 - [PhoenixNAP: Find command in Linux explained](https://phoenixnap.com/kb/guide-linux-find-command)
 - [Red Hat Blog: A practical guide to Linux find command](https://www.redhat.com/en/blog/linux-find-command)
 
-### YouTube-відео
+### YouTube-відео про `find`
 
 Відео українською не знайшов, тому додаю якісні англомовні варіанти:
 
@@ -1245,7 +1240,7 @@ find "${SRC_DIR}" -name "*.conf" -exec cp --parents {} "${DST_DIR}" \;
 
 Для робочої бази даних звичайне копіювання файлів каталогу з даними — зазвичай погана ідея. Правильніше робити дамп штатними інструментами.
 
-### Чи є команда вбудованою
+### Чи є команди для дампів БД вбудованими
 
 `mysqldump` і `pg_dump` **не є builtin-командами shell**. Це окремі клієнтські утиліти для конкретних СУБД.
 
@@ -1256,7 +1251,7 @@ find "${SRC_DIR}" -name "*.conf" -exec cp --parents {} "${DST_DIR}" \;
   - **Debian / Ubuntu:** пакет `postgresql-client`
   - **RHEL / CentOS / Rocky / AlmaLinux:** пакет `postgresql`
 
-### Приклад встановлення
+### Як встановити утиліти для дампів БД
 
 **Debian / Ubuntu**
 ```bash
@@ -1332,21 +1327,21 @@ mysqldump -u root -p "${DB_NAME}" > "${BACKUP_FILE}"
  echo "[OK] Database backup completed successfully"
 ```
 
-### Офіційна документація / manual page
+### Документація для дампів БД
 
 Офіційної україномовної сторінки для `mysqldump` і `pg_dump`, як правило, немає, тому нижче — офіційна англомовна документація:
 
 - [MySQL Reference Manual: `mysqldump`](https://dev.mysql.com/doc/en/mysqldump.html)
 - [PostgreSQL documentation: `pg_dump`](https://www.postgresql.org/docs/current/app-pgdump.html)
 
-### Блоги / статті
+### Блоги / статті про дампи БД
 
 Україномовних якісних статей саме по `mysqldump` і `pg_dump` майже немає, тому додаю перевірені англомовні матеріали:
 
 - [DigitalOcean: How to back up MySQL databases with mysqldump](https://www.digitalocean.com/community/tutorials/how-to-back-up-mysql-databases-with-lvm-snapshots)
 - [DigitalOcean: How to back up, restore, and migrate a PostgreSQL database](https://www.digitalocean.com/community/tutorials/how-to-back-up-restore-and-migrate-a-mysql-database)
 
-### YouTube-відео
+### YouTube-відео про дампи БД
 
 Відео українською не знайшов, тому додаю англомовні варіанти для `mysqldump` і `pg_dump`:
 
@@ -1359,14 +1354,14 @@ mysqldump -u root -p "${DB_NAME}" > "${BACKUP_FILE}"
 
 Команди мають реальну користь, коли вони запускаються регулярно.
 
-### Чи є команда вбудованою
+### Чи є команда `cron` вбудованою
 
 `cron` **не є builtin-командою shell**. Це окремий сервіс планувальника задач. Для редагування розкладу зазвичай використовують команду `crontab`.
 
 - **Debian / Ubuntu:** пакет `cron`
 - **RHEL / CentOS / Rocky / AlmaLinux:** пакет `cronie`
 
-### Приклад встановлення
+### Як встановити `cron`
 
 **Debian / Ubuntu**
 ```bash
@@ -1455,14 +1450,14 @@ echo '0 2 * * * /usr/local/bin/backup.sh >> /var/log/backup.log 2>&1'
  echo "[OK] Daily backup script finished successfully"
 ```
 
-### Офіційна документація / manual page
+### Документація для `cron`
 
 Офіційної україномовної сторінки для `cron` / `crontab`, як правило, немає, тому нижче — англомовна документація:
 
 - [man7.org: `crontab(1)`](https://man7.org/linux/man-pages/man1/crontab.1.html)
 - [man7.org: `crontab(5)`](https://man7.org/linux/man-pages/man5/crontab.5.html)
 
-### Блоги / статті
+### Блоги / статті про `cron`
 
 Для `cron` є багато хороших англомовних матеріалів. Україномовні якісні гіди трапляються рідко, тому даю перевірені англомовні статті:
 
@@ -1470,7 +1465,7 @@ echo '0 2 * * * /usr/local/bin/backup.sh >> /var/log/backup.log 2>&1'
 - [DigitalOcean: How to use cron to automate tasks on CentOS 8](https://www.digitalocean.com/community/tutorials/how-to-use-cron-to-automate-tasks-centos-8)
 - [DigitalOcean: How to schedule routine tasks with cron and anacron](https://www.digitalocean.com/community/tutorials/how-to-schedule-routine-tasks-with-cron-and-anacron-on-a-vps)
 
-### YouTube-відео
+### YouTube-відео про `cron`
 
 Знайшов переважно англомовні відео, тому додаю їх:
 
